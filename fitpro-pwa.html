@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<link rel="manifest" href="data:application/manifest+json,%7B%22name%22%3A%22FitPro%20%E2%80%94%20%D8%AD%D8%B3%D8%A7%D9%85%20%D8%A7%D9%84%D8%AF%D9%8A%D9%86%20%D9%85%D8%AF%D9%86%D9%8A%22%2C%22short_name%22%3A%22FitPro%22%2C%22start_url%22%3A%22.%22%2C%22display%22%3A%22standalone%22%2C%22background_color%22%3A%22%230f172a%22%2C%22theme_color%22%3A%22%230f172a%22%2C%22orientation%22%3A%22portrait%22%2C%22icons%22%3A%5B%7B%22src%22%3A%22data%3Aimage/png%3Bbase64%2CiVBORw0KGgoAAAANSUhEUgAAAMAAAADACAIAAADdvvtQAAAGkklEQVR4nO3dy2tdVRSA8XOTG1rytG00FLUkBCnE%2Bgj4AMVBkTpxVkWwgnHkH%2BDAB1RwkFERnDgUxEHsrFZwIlh14jslSnxE29pgKm1tk8q9ebQkN3FwIBwack2z9tp77X2%2B3/S2zc46H%2Buc9iZppadvKAO2qyX0ARA3AoIIAUGEgCBCQBAhIIgQEEQICCIEBBECgggBQYSAIEJAECEgiBAQRAgIIgQEEQKCCAFBhIAgQkAQISCIEBBEqqEPYMWeEw/d6m%2BZPTyucZK4VMr5jYXbyGUrSphUiQJSimYzJYkp8YA8R7OZhGNKMyAj3WyUXkmpBWQ2naKUMkonoCjSKUojoxQCii6dotgzijugqNMpijejWANKJp2iGDOKL6Ak0ymKK6OYAko%2BnaJYMormzdRS1ZPF8/nGEVAs03Qris/a%2Bi0siiFqs3w7M72BqCdneQ52A7I8Nf/MTsPiLczssCywdjszt4Gopzlr87EVkLXp2GRqSoYCMjUX4%2BzMykpAdiYSCyMTMxGQkVlEx8LcwgdkYQrxCj69wAEF//wTEHaGIQOiHlcCTjL8LQxRCxYQ68etUPMMExD1aAgy1QABUY8e/7PlGQgivgNi/WjzPGGvAVGPHz7n7C8g6vHJ27R5BoKIp4BYP/75mTkbCCI%2BAmL9hOJh8mwgiKgHxPoJS3v%2BbCCI6AbE%2BrFA9SqwgSCiGBDrxw69a8EGgohWQKwfa5SuCBsIIioBsX5s0rgubCCIEBBE3AfE/csy51eHDQQRAoIIAUHEcUA8ANnn9hqxgSBCQBAhIIi4DIgHoFg4vFJsIIgQEEQICCIEBBECgoiz/%2B4p7F/BRgdfer7voPzPOV0/89zkqPxDNNZW5xtL9cbSv8vzU4szk/Pnv61NnV38W35Ch5z8z1FV%2BR%2BBjVorLT3Vjp5qx107eg909j97xxNZlk3Uz41dOnXyytdr2VroAzrDLcyf4a7Bt%2B95%2BfiBN/p39oU%2BizME5NvD3fs/uv%2BtoY59oQ/iBgEF0F1t/2Do1bt33h76IA4QUBi727re7H8h9CkcSP8hevT8h%2B9f/NTnh2ittNxW7Xywa3Bk76HHe%2B7d7Hc9uXv4ke7939d%2BVz2bNjaQe4211dnl2qm5iRd/OfbuhY%2Bb/Mqnex/1diolBKTrnb9OnK6f2ezVg7se8HkYDQSk7vilLzZ76c4dve2tO3wexjkCUvfzwnSTV/e0dfs6iAoCUldfWWryandrh7eTaCAgdd3V9iav1hoL3k6igYDU3dc50OTV2eWat5NoSP/fgY4OHDk6cGQrv/LPpYuHJl53%2B9ErWaXJe/gXblxdbNxw%2BxE9YwPpemXfM8Ndg5u9%2BuW1n3weRkP6G8i/lqyyq61ruGtwZO9Tj/U0%2B3KrT65%2B5%2B1USpwFNHt4vLTf1rP1u2TRZ3MTP4R7H8PJV5Nl3MJCmVuuj06PhT6FAwQUQG1lceTXYzPXr4Q%2BiAPpPwN5eDf%2BlozX/njt7HvT1y%2BHPogb6Qdkx4/1c2OXPz/5z1erCX1NNAGpWM3W5leW5htL11bqUwszk/PT39R%2Bs/ZdGU64DKi0fxGzdpf8X67%2BCpbxEA0hAoIIAUHEcUAOb65Q4vYasYEgQkAQISCIuA%2BIxyDLnF8dNhBECAgiKgFxF7NJ47o4%2BxF3Nynnm2LGaQSkdQtjCVmjdEV4BoKIYkAsITv0rgUbCCK6AbGELFC9CmwgiKgHxBIKS3v%2BbCCI%2BAiIJRSKh8mzgSDiKSCWkH9%2BZs4Ggoi/gFhCPnmbttcNREN%2B%2BJyz71sYDWnzPGGegSASICCWkB7/sw2zgWhIQ5CpBruF0ZBboebJMxBEQgbEEnIl4CQDbyAakgs7w/C3MBqSCD698AFlBqYQKQtzMxFQZmMWcTEyMSsBZWYmEgU7szIUUGZpLpaZmpKtgDJj0zHI2ny0friCHD%2Be4SbW0smZ20DrbM4rFLPTsBtQZnhqnlmeg91bWFFpb2eW08mZ3kDr7M9RQxSfdRwBZZFM06FYPt84bmFFyd/OYkknF19AuSQziiudXKwB5ZLJKMZ0cnEHlIs6o3jTyaUQUC66jGJPJ5dOQLkoMkojnVxqAeXMZpRSOrk0A1pnpKT0ulmXeEBFnmNKOJqiEgVUpBRTSaIpKmlAG20jqRLmshEBQSSaN1NhEwFBhIAgQkAQISCIEBBECAgiBAQRAoIIAUGEgCBCQBAhIIgQEEQICCIEBBECgggBQYSAIEJAECEgiBAQRP4D/hnFHMidL8wAAAAASUVORK5CYII%3D%22%2C%22sizes%22%3A%22192x192%22%2C%22type%22%3A%22image/png%22%7D%2C%7B%22src%22%3A%22data%3Aimage/png%3Bbase64%2CiVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAIAAAB7GkOtAAASmElEQVR4nO3dbayf5V3A8f95aAst7Zm2hY0n50ZBwETsSsbglYlhGnBjhPhiS4wmGjYjUbPERN1ifIguIWZhmhHjC50mSxgGNud0w2WCMSpPDrYYCqwQoBRZT%2Bn6xOnpefJFSVfOOT3n/3Dd931d1%2B/zeU3u3iHX7/e97///nHZs6qJregDEM971DQDQDQEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIKa7PoGoBHbH9iT9oKHbn8i7QWhc2NTF13T9T3AMJKv%2BFHIAyUSAAqQ1a7vnyqQOQEgO4Wu%2B35IAlkRALpX8cZfmx7QLQGgG2GX/rmIAe0TANpj6fdJDGiHANAsS39EYkBzBIBG2PvJKQHJCQAp2fstUAJSEQASsPc7oQSMSAAYnr2fCSVgOALAwOz9bCkBAxEABmD1F0EG6JMAsD57v1BKwNoEgLVY/RWQAc5FAFid1V8ZGWAlAeBt7P3qKQFnCABvsfpDkQF6AkDP6g9MBoITgNCsfnoyEJgABGX1s4wMBCQA4Vj9rEEGQhGAQKx%2B%2BiQDQYx3fQO0xPanf05LEN4A6meYGZpXgboJQM2sfpKQgVoJQJ2sfpKTgfr4DqBCtj9NcK7q4w2gKkaUFngVqIY3gHrY/rTDSauGN4AaGEg64VWgdN4Aimf70xVnr3TeAApm/MiEV4FCeQMole1PPpzGQnkDKI9hI1teBcriDaAwtj85cz7LIgAlMV3kzyktiI%2BAymCoKI6Pg/LnDaAAtj8lcm7zJwC5M0WUy%2BnNnI%2BA8mV4qIaPg/LkDSBTtj81cZ7zJAA5Mi3Ux6nOkABkx5xQK2c7N74DyIjxIAhfCWTCG0AubH/icNozIQBZMA9E48znQAC6ZxKIycnvnAB0zAwQmfPfLQHoktMPpqBDAtAZ5x5OMwtdEYBuOPFwNhPRCQHogLMOK5mL9vlFsFY54rAuvybWGm8A7bH9oR8mpTUC0BJnGvpnXtohAG1wmmFQpqYFAtA45xiGY3aaJgAAQQlAszzCwChMUKMEoEHOLozOHDVHAJri1EIqpqkhAtAI5xXSMlNNEID0nFRogslKTgASc0ahOeYrLQFIyemEppmyhAQgGecS2mHWUhGANJxIaJOJS0IAAIISgAQ8jED7zN3oBGBUTiF0xfSNSABG4vxBt8zgKARgeE4e5MAkDk0AAIISgCF56IB8mMfhCMAwnDbIjakcggAMzDmDPJnNQQkAQFACMBiPGJAzEzoQARiAswX5M6f9E4B%2BOVVQCtPaJwEACEoA%2BuKBAspiZvshAOtzkqBEJnddAgAQlACsw0MElMv8rk0A1uL0QOlM8RoEACAoATgnDw5QB7N8LgKwOicGamKiVyUAAEEJwCo8LEB9zPVKArCcUwK1Mt3LCABAUALwNh4QoG5m/GwCABCUAPyQRwOIwKSfIQAAQQnAWzwUQBzm/TQB6PWcBojH1PcEACAsAfAgAEGZfQEACCp6ADwCQGTBN0D0AACEFToAweMP9GLvgdABAIgsbgAiZx84W9htEDcAAMEFDUDY4AOrirkTggYAgIgBiJl6YG0BN0PEAADQEwCAsMIFIOBbHtCnaPshXAAAOC1WAKLlHRhUqC0RKwAAnBEoAKHCDgwtzq4IFAAAziYAAEFFCUCcdzpgdEE2RpQAALBMiAAEiTmQUIS9ESIAAKwkAABB1R%2BACO9xQBOq3x71BwCAVQkAQFCVB6D6NzigUXXvkMoDAMC5CABAUDUHoO53N6AdFW%2BSmgMAwBoEACCoagNQ8Vsb0LJa90m1AQBgbQIAEFSdAaj1fQ3oSpVbpc4AALAuAQAISgAAgqowAFV%2BVAd0rr7dUmEAAOiHAAAEJQAAQdUWgPo%2BpAPyUdmGqS0AAPRJAACCEgCAoKoKQGUfzwEZqmnPVBUAAPonAABBCQBAUAIAEFQ9AajpmxkgZ9Vsm3oCAMBABAAgKAEACEoAAIISAICgKglANV/KA0WoY%2BdUEgAABiUAAEEJAEBQAgAQlAAABCUAAEHVEIA6fh4LKEsFm6eGAAAwhMmub4C8vH/qJ7547e92fRcj%2BeYb/3Pn3ntGuUKH/xPmluZPLc7PLs6dWpo7Nj9zcO7I9NyR6VNH988e3Dfz2vNvvvr6qcOd3BhVEgDIyIaxyQ0Tk1smzuv1eu/c2NvVu2TZf3B8Yebp4y88emTv40effer4vlOL813cJpUQACjJBRPn3zR17U1T1/Z6vTcXZr91%2BNv/NP3YIz94WgkYggBAqTZPbLp1xw237rjh2MLMfa8//IXX/vXA7KGub4qS%2BBIYird14vxfvfjnH95992ev/Phl5%2B3s%2BnYohgBAJSbGJj604wMPXfeZT15%2Bx%2BaJTV3fDgUQAKjKxvHJX7/0F75%2B3Z/%2B9NYrur4XcicAUKFLNu247yd/785LbhnrjXV9L%2BSr%2BABU8Mt40ISJsYnf%2BbFfvHvXr02MTXR9L9Uqff8UHwBgDR/ZedPnr/qNjeN%2B3o9VCABU7md/dPdnd33CZ0GsJABQv5/bvueTl9/R9V2QHQGAED5x6a0f3F72B9YkJwAQxR%2B955feMbml67sgIwIAUezYMPWpH/9Y13dBRgQAArlt541Xb7m867sgFwIAgYz1xu669MNd3wW58NPB0JRnTrx869Of7ue/3DA2OTW5ZWpy846NU9dd8N7dW3ft2XZlQ5/X37z9fVecf/H3Zg40cXHKIgA0ov/dR6/Xm1uan547Mj13ZN/Ma48e2dvr9TaNb/jwzht/%2BV03X7X50rR/1lhv7CMX3nT3S/envSwl8hEQ5Gh2ce5Lrz9yy1Of%2BsxL980vLaS9%2BId2fMDvhdETAMjZUm/pr1/95zu%2B%2B8eH544lvOzFm7Zft/U9CS9IoQQAcvfd4y/eufeetP/o4/u3XZ3wahRKAKAATx57/g9f/PuEF7x%2B25UJr0ahBADK8KXXH0n4ozu7t%2B5KdSnKJQBQhsXe0udeeTDV1bZNbt6%2BYVuqq1EoAYBifPONb88uzqW62uX%2B%2BfjwBACKMbs49%2BSx51Nd7bJNF6a6FIUSACjJ40efTXWpH9lwQapLUSgBgJJMzx1NdanNE5tSXYpCCQCUJOFvhJ0/LgDRCQCU5NjCTKpLnTe%2BMdWlKJQAQEm2TWxOdamTi6dSXYpCCQCUJOE3tzOLs6kuRaEEAEpy4cZ3pLrUmwsCEJ0AQEmu33ZVqku9kfRvGKVExQfg0O1PdH0L0JLzxzfu3npFqqu9Mnsw1aXCKn3/%2BBfBaMTVWy7fd%2BMXWv5DP/q/f3b6n9Oq1Qe379kwlmxmXz75/VSXolDFvwFAEBNjE3dddluqqx2ZP%2BEjIAQAyvCxd/7Mu8%2B7KNXVEv6dQpRLAKAAN0xd/fvv/mjCCz5%2B9LmEV6NQAgC527111%2BevumtybCLhNR87WvOXJfTJl8CQr/He2J2X3vLbl90%2BkXT775%2BdfvrYCwkvSKEEAHJ03vjG23be%2BCvvuvmKzZckv/hXD/73Um8p%2BWUpjgBA9zaMTW6b3Dw1uWXnhqmf2vre923ddf22K6cmtzTxZy31lh48%2BB9NXJniCAA0pZNfhljXNw49uW/mta7vgizU8CVw6b%2BMB61Z6i395f6vdH0Xlahg89QQAKBPXz74n8%2BceLnruyAXAgBRHJo7%2BicvfrHruyAjAgBR/MELf/eD%2BeNd3wUZEQAI4a9e/dq/HHq867sgLwIA9XvojSfvfun%2Bru%2BC7AgAVO5bh5/6refu9ZtfrFRJACr4eSxowj9O/9fH935udnGu6xupTR07xy%2BCQZ0WlhbveeXBe/d/ddGzP%2BcgADTimRMv3/r0p7u%2Bi7j%2B79Qbv/ncvU/4O59ZkwBAVeaW5v/2wEN/sf8rJxZOdn0v5E4AoBILS4tfP/TEn7/8Dy%2BdfL3re6EMAgDFO7Fw8v7v//vfHPjG/tnpru%2BFktQTgEO3P7H9gT1d3wW0Z2bx1L8dfupr048%2BfPg7JxdPdX07gdTxI0C9mgIAEZxYOPmd4y88dvTZR4/uferYPj/fySgEADIyv7RwanHu1NL87OL8sfkT03NHp%2BeOTM8d3X9yet/Mge/NHDgwe6jre6QeAgBN8bOwZK6S3wQGYFBVBaCab2aAbNW0Z6oKAAD9EwCAoAQAIKjaAlDTx3NAbirbMLUFAIA%2BCQBAUAIAEFSFAajsQzogE/XtlgoDAEA/BAAgKAEACKrOANT3UR3QrSq3Sp0BAGBdAgAQVLUBqPJ9DehErfuk2gAAsDYBAAiq5gDU%2BtYGtKniTVJzAABYgwAABFV5ACp%2BdwNaUPcOqTwAAJyLAAAEVX8A6n6DA5pT/faoPwAArEoAAIIKEYDq3%2BOA5CLsjRABAGClKAGIEHMglSAbY2zqomu6voeWbH9gT9e3AJQhSACivAEAsEygAARJOjCiOLsiUAAAOFusAMQJOzCcUFsiVgAAOCNcAELlHRhItP0QLgAAnCYAAEFFDEC0tzygHwE3Q8QAANALG4CAqQfWEHMnBA0AAHEDEDP4wEpht0HcAAAEFzoAYbMPnBF5D4QOAEBk0QMQOf5A8A0QPQAAYQlA9EcACMvsCwBAUALQ63kQgHhMfU8AznAaIA7zfpoAAAQlAD/koQAiMOlnCABAUALwNh4NoG5m/GwCABCUACznAQFqZbqXEYBVOCVQH3O9kgAABCUAq/OwADUx0asSgHNyYqAOZvlcBAAgKAFYiwcHKJ0pXoMArMPpgXKZ37UJAEBQArA%2BDxFQIpO7LgHoi5MEZTGz/RAAgKAEoF8eKKAUprVPAjAApwryZ077JwCDcbYgZyZ0IAIAEJQADMwjBuTJbA5KAIbhnEFuTOUQBGBIThvkwzwORwAAghKA4XnogByYxKEJwEicPOiWGRyFAIzK%2BYOumL4RCUACTiG0z9yNTgAAghKANDyMQJtMXBICkIwTCe0wa6kIQErOJTTNlCUkAIk5ndAc85WWAKTnjEITTFZyAtAIJxXSMlNNEICmOK%2BQimlqiAA0yKmF0Zmj5ghAs5xdGIUJapQAAAQlAI3zCAPDMTtNE4A2OMcwKFPTAgFoidMM/TMv7RCA9jjT0A%2BT0pqxqYuu6foewtn%2BwJ6ubwFyZPW3zBtAB5xyWMlctE8AuuGsw9lMRCcEoDNOPJxmFroiAF1y7sEUdEgAOub0E5nz3y0B6J4ZICYnv3MCkAWTQDTOfA4EIBfmgTic9kz4RbDs%2BDUxKmb1Z8UbQHZMCLVytnMjADkyJ9THqc6QAGTKtFAT5zlPvgPIna8EKJrVnzNvALkzP5TL6c2cABTAFFEi5zZ/PgIqiY%2BDKILVXwpvACUxV%2BTPKS2IABTGdJEz57MsPgIqlY%2BDyIrVXyJvAKUyb%2BTDaSyUN4DieRWgQ1Z/0bwBFM8E0hVnr3TeAOrhVYDWWP118AZQDzNJO5y0angDqJBXARpi9VfGG0CFTClNcK7q4w2gZl4FSMLqr5UA1E8GGJrVXzcBiEIGGIjVH4HvAKIwz/TPaQnCG0A4XgVYg9UfigAEJQMsY/UHJAChyQA9qz8wAUAG4rL6gxMA3iIDoVj99ASAZWSgelY/ZwgAq1OCytj7rCQArEUGKmD1cy4CwPpkoFBWP2sTAAagBEWw9%2BmTADAwGciW1c9ABIDhKUEm7H2GIwAkoASdsPcZkQCQkhK0wN4nFQGgEUqQnL1PcgJAs5RgRPY%2BzREA2iMGfbL0aYcA0A0xWMbSp30CQPfCxsDSp1sCQHYq7oGNT1YEgAIUmgTrnswJAKXKqgp2PSUSAOqUPA9WPPURAICgxru%2BAQC6IQAAQQkAQFACABCUAAAEJQAAQQkAQFACABCUAAAEJQAAQQkAQFACABCUAAAEJQAAQQkAQFACABCUAAAEJQAAQQkAQFACABCUAAAEJQAAQQkAQFACABCUAAAEJQAAQQkAQFACABCUAAAEJQAAQQkAQFACABCUAAAEJQAAQQkAQFACABCUAAAEJQAAQQkAQFACABCUAAAEJQAAQQkAQFACABCUAAAEJQAAQQkAQFACABCUAAAEJQAAQQkAQFACABCUAAAEJQAAQQkAQFACABCUAAAEJQAAQQkAQFACABCUAAAEJQAAQf0/3IN5jWDtn6EAAAAASUVORK5CYII%3D%22%2C%22sizes%22%3A%22512x512%22%2C%22type%22%3A%22image/png%22%7D%5D%7D">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="FitPro">
+<link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAIAAADdvvtQAAAGkklEQVR4nO3dy2tdVRSA8XOTG1rytG00FLUkBCnE+gj4AMVBkTpxVkWwgnHkH+DAB1RwkFERnDgUxEHsrFZwIlh14jslSnxE29pgKm1tk8q9ebQkN3FwIBwack2z9tp77X2+3/S2zc46H+uc9iZppadvKAO2qyX0ARA3AoIIAUGEgCBCQBAhIIgQEEQICCIEBBECgggBQYSAIEJAECEgiBAQRAgIIgQEEQKCCAFBhIAgQkAQISCIEBBEqqEPYMWeEw/d6m+ZPTyucZK4VMr5jYXbyGUrSphUiQJSimYzJYkp8YA8R7OZhGNKMyAj3WyUXkmpBWQ2naKUMkonoCjSKUojoxQCii6dotgzijugqNMpijejWANKJp2iGDOKL6Ak0ymKK6OYAko+naJYMormzdRS1ZPF8/nGEVAs03Qris/a+i0siiFqs3w7M72BqCdneQ52A7I8Nf/MTsPiLczssCywdjszt4Gopzlr87EVkLXp2GRqSoYCMjUX4+zMykpAdiYSCyMTMxGQkVlEx8LcwgdkYQrxCj69wAEF//wTEHaGIQOiHlcCTjL8LQxRCxYQ68etUPMMExD1aAgy1QABUY8e/7PlGQgivgNi/WjzPGGvAVGPHz7n7C8g6vHJ27R5BoKIp4BYP/75mTkbCCI+AmL9hOJh8mwgiKgHxPoJS3v+bCCI6AbE+rFA9SqwgSCiGBDrxw69a8EGgohWQKwfa5SuCBsIIioBsX5s0rgubCCIEBBE3AfE/csy51eHDQQRAoIIAUHEcUA8ANnn9hqxgSBCQBAhIIi4DIgHoFg4vFJsIIgQEEQICCIEBBECgoiz/+4p7F/BRgdfer7voPzPOV0/89zkqPxDNNZW5xtL9cbSv8vzU4szk/Pnv61NnV38W35Ch5z8z1FV+R+BjVorLT3Vjp5qx107eg909j97xxNZlk3Uz41dOnXyytdr2VroAzrDLcyf4a7Bt+95+fiBN/p39oU+izME5NvD3fs/uv+toY59oQ/iBgEF0F1t/2Do1bt33h76IA4QUBi727re7H8h9CkcSP8hevT8h+9f/NTnh2ittNxW7Xywa3Bk76HHe+7d7Hc9uXv4ke7939d+Vz2bNjaQe4211dnl2qm5iRd/OfbuhY+b/Mqnex/1diolBKTrnb9OnK6f2ezVg7se8HkYDQSk7vilLzZ76c4dve2tO3wexjkCUvfzwnSTV/e0dfs6iAoCUldfWWryandrh7eTaCAgdd3V9iav1hoL3k6igYDU3dc50OTV2eWat5NoSP/fgY4OHDk6cGQrv/LPpYuHJl53+9ErWaXJe/gXblxdbNxw+xE9YwPpemXfM8Ndg5u9+uW1n3weRkP6G8i/lqyyq61ruGtwZO9Tj/U0+3KrT65+5+1USpwFNHt4vLTf1rP1u2TRZ3MTP4R7H8PJV5Nl3MJCmVuuj06PhT6FAwQUQG1lceTXYzPXr4Q+iAPpPwN5eDf+lozX/njt7HvT1y+HPogb6Qdkx4/1c2OXPz/5z1erCX1NNAGpWM3W5leW5htL11bqUwszk/PT39R+s/ZdGU64DKi0fxGzdpf8X67+CpbxEA0hAoIIAUHEcUAOb65Q4vYasYEgQkAQISCIuA+IxyDLnF8dNhBECAgiKgFxF7NJ47o4+xF3Nynnm2LGaQSkdQtjCVmjdEV4BoKIYkAsITv0rgUbCCK6AbGELFC9CmwgiKgHxBIKS3v+bCCI+AiIJRSKh8mzgSDiKSCWkH9+Zs4Ggoi/gFhCPnmbttcNREN++Jyz71sYDWnzPGGegSASICCWkB7/sw2zgWhIQ5CpBruF0ZBboebJMxBEQgbEEnIl4CQDbyAakgs7w/C3MBqSCD698AFlBqYQKQtzMxFQZmMWcTEyMSsBZWYmEgU7szIUUGZpLpaZmpKtgDJj0zHI2ny0friCHD+e4SbW0smZ20DrbM4rFLPTsBtQZnhqnlmeg91bWFFpb2eW08mZ3kDr7M9RQxSfdRwBZZFM06FYPt84bmFFyd/OYkknF19AuSQziiudXKwB5ZLJKMZ0cnEHlIs6o3jTyaUQUC66jGJPJ5dOQLkoMkojnVxqAeXMZpRSOrk0A1pnpKT0ulmXeEBFnmNKOJqiEgVUpBRTSaIpKmlAG20jqRLmshEBQSSaN1NhEwFBhIAgQkAQISCIEBBECAgiBAQRAoIIAUGEgCBCQBAhIIgQEEQICCIEBBECgggBQYSAIEJAECEgiBAQRP4D/hnFHMidL8wAAAAASUVORK5CYII=">
+
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+<meta name="apple-mobile-web-app-title" content="FitPro"/>
+<meta name="theme-color" content="#0f172a"/>
+<title>FitPro — حسام الدين مدني</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+body{font-family:-apple-system,'Segoe UI',Tahoma,Arial,sans-serif;background:#0f172a;color:#e2e8f0;min-height:100vh;max-width:430px;margin:0 auto;overflow-x:hidden;}
+button{cursor:pointer;font-family:inherit;}
+::-webkit-scrollbar{display:none;}
+.screen{display:none;padding-bottom:80px;min-height:calc(100vh - 36px);overflow-y:auto;}
+.screen.active{display:block;}
+#statusBar{background:#060d1a;padding:6px 16px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:200;}
+#tabBar{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:430px;background:#060d1a;border-top:1px solid #1e293b;display:flex;z-index:100;padding-bottom:env(safe-area-inset-bottom,4px);}
+.tab-btn{flex:1;padding:10px 4px 8px;background:transparent;border:none;display:flex;flex-direction:column;align-items:center;gap:3px;transition:all 0.15s;}
+.tab-btn span.icon{font-size:20px;}
+.tab-btn span.label{font-size:10px;color:#334155;font-weight:400;}
+.tab-btn.active span.label{color:#22c55e;font-weight:800;}
+.tab-indicator{width:16px;height:2px;background:#22c55e;border-radius:1px;display:none;}
+.tab-btn.active .tab-indicator{display:block;}
+.badge{display:inline-block;border-radius:6px;padding:2px 8px;font-size:10px;font-weight:700;}
+.card{background:#1e293b;border-radius:14px;padding:16px;margin-bottom:14px;border:1px solid #334155;}
+.section-title{font-size:11px;color:#64748b;font-weight:700;margin-bottom:8px;letter-spacing:1px;}
+.ex-row{background:#1e293b;border-radius:14px;overflow:hidden;margin-bottom:10px;transition:all 0.2s;}
+.ex-row.done{background:#14532d;border-color:#22c55e!important;}
+.ex-header{padding:14px 16px;display:flex;align-items:center;gap:12px;}
+.ex-detail{padding:0 16px 14px;border-top:1px solid #334155;display:none;}
+.ex-detail.open{display:block;}
+.check-circle{width:28px;height:28px;border-radius:50%;border:2px solid #334155;background:transparent;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:14px;color:#fff;}
+.check-circle.checked{background:#22c55e;border-color:#22c55e;}
+.progress-bar-bg{background:#0f172a;border-radius:4px;height:6px;overflow:hidden;}
+.progress-bar-fill{height:100%;border-radius:4px;transition:width 0.3s;}
+svg.ring{transform:rotate(-90deg);}
+.ring-track{fill:none;stroke:#1e293b;}
+.ring-fill{fill:none;transition:stroke-dashoffset 0.6s ease;}
+.timer-display{font-size:60px;font-weight:900;font-variant-numeric:tabular-nums;letter-spacing:2px;}
+.btn-primary{padding:14px 32px;border-radius:14px;border:none;color:#fff;font-size:16px;font-weight:800;}
+.btn-secondary{padding:14px 20px;border-radius:14px;border:1px solid #334155;background:transparent;color:#64748b;font-size:16px;}
+.timer-tab{flex:1;padding:10px 4px;border-radius:10px;border:none;font-size:11px;font-weight:400;display:flex;flex-direction:column;align-items:center;gap:3px;}
+.meal-tab{flex-shrink:0;padding:8px 10px;border-radius:10px;font-size:11px;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:2px;}
+.day-btn{flex-shrink:0;min-width:60px;padding:10px 6px;border-radius:12px;border:none;display:flex;flex-direction:column;align-items:center;gap:3px;transition:all 0.2s;}
+.protocol-bar{background:#1e293b;border-radius:3px;height:5px;overflow:hidden;flex:1;}
+</style>
+</head>
+<body>
+
+<div id="statusBar">
+  <div style="font-size:11px;color:#1e3a5f;font-weight:900;letter-spacing:2px">FITPRO</div>
+  <div style="display:flex;gap:10px;align-items:center">
+    <div style="font-size:10px;color:#22c55e;font-weight:700" id="activeLabel">● نشط</div>
+    <button onclick="toggleLang()" id="langBtn" style="background:#1e293b;border:1px solid #334155;border-radius:8px;padding:3px 10px;color:#93c5fd;font-size:11px;font-weight:700">English</button>
+  </div>
+</div>
+
+<!-- HOME -->
+<div class="screen active" id="screen-home">
+  <div id="homeHero" style="background:linear-gradient(160deg,#0f2744,#0a1628,#0f172a);padding:24px 16px 16px;border-bottom:1px solid #1e293b">
+    <div id="todayDate" style="font-size:11px;color:#475569;margin-bottom:6px"></div>
+    <div style="display:flex;justify-content:space-between;align-items:flex-start">
+      <div>
+        <div id="heroName" style="font-size:22px;font-weight:900;color:#fff;line-height:1.2">حسام الدين مدني</div>
+        <div id="heroGym" style="font-size:12px;color:#64748b;margin-top:2px">Gulfinn Gym — المتينة</div>
+      </div>
+      <div style="text-align:center">
+        <div style="position:relative;width:56px;height:56px">
+          <svg width="56" height="56" class="ring"><circle class="ring-track" cx="28" cy="28" r="23" stroke-width="5"/><circle class="ring-fill" cx="28" cy="28" r="23" stroke="#22c55e" stroke-width="5" stroke-dasharray="144.5" stroke-dashoffset="52"/></svg>
+          <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;color:#22c55e">64</div>
+        </div>
+        <div id="inbodyLbl" style="font-size:9px;color:#475569;margin-top:2px">InBody</div>
+      </div>
+    </div>
+    <div style="margin-top:14px;background:#0a1628;border-radius:12px;padding:12px 14px">
+      <div style="display:flex;justify-content:space-between;margin-bottom:6px">
+        <div id="progressTitle" style="font-size:11px;color:#64748b">التقدم نحو الهدف</div>
+        <div id="targetLbl" style="font-size:11px;color:#f59e0b;font-weight:700">الهدف: 70.6 كجم</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px">
+        <div style="font-size:18px;font-weight:800;color:#ef4444">93.2</div>
+        <div style="flex:1;background:#1e293b;border-radius:4px;height:8px"><div style="width:0%;background:linear-gradient(90deg,#ef4444,#f59e0b,#22c55e);height:100%;border-radius:4px"></div></div>
+        <div style="font-size:18px;font-weight:800;color:#22c55e">70.6</div>
+      </div>
+      <div style="display:flex;justify-content:space-between;margin-top:4px">
+        <div id="nowLbl" style="font-size:10px;color:#64748b">الآن</div>
+        <div id="loseLbl" style="font-size:10px;color:#f59e0b">⬇ 22.6 كجم للإنقاص</div>
+        <div id="targetLbl2" style="font-size:10px;color:#64748b">الهدف</div>
+      </div>
+    </div>
+  </div>
+  <div style="padding:16px">
+    <div class="section-title" id="todayLbl">اليوم</div>
+    <div id="todayCard" onclick="goTab('workout')" style="border-radius:16px;padding:16px;margin-bottom:16px;cursor:pointer"></div>
+    <div class="section-title" id="weekLbl">الأسبوع</div>
+    <div id="weekStrip" style="display:flex;gap:5px;margin-bottom:16px"></div>
+    <div class="section-title" id="statsLbl">إحصائياتك</div>
+    <div id="statsGrid" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:16px"></div>
+    <div style="background:linear-gradient(135deg,#0f2744,#091628);border-radius:14px;padding:14px 16px;border:1px solid #1e4080">
+      <div id="coachTipLbl" style="font-size:11px;color:#93c5fd;font-weight:700;margin-bottom:6px">💡 نصيحة المدرب</div>
+      <div id="coachMsg" style="font-size:13px;color:#cbd5e1;line-height:1.7">الدهون الحشوية (Level 16) تستجيب لمزيج السباحة + HIIT. 3 جلسات سباحة أسبوعياً وستلاحظ فرقاً خلال 6 أسابيع.</div>
+    </div>
+  </div>
+</div>
+
+<!-- WORKOUT -->
+<div class="screen" id="screen-workout">
+  <div style="background:#0a1628;padding:20px 16px 0;border-bottom:1px solid #1e293b">
+    <div id="workoutTitle" style="font-size:20px;font-weight:800;color:#fff;margin-bottom:2px">💪 التمارين</div>
+    <div id="workoutSub" style="font-size:12px;color:#64748b;margin-bottom:14px">6 أيام | بطن + كارديو + سباحة</div>
+    <div id="dayStrip" style="display:flex;gap:6px;overflow-x:auto;padding-bottom:14px;scrollbar-width:none"></div>
+  </div>
+  <div style="padding:16px">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+      <div><div id="wDayFull" style="font-size:18px;font-weight:800;color:#fff"></div><div id="wDayLabel" style="font-size:12px;margin-top:2px"></div></div>
+      <span id="wKcalBadge" class="badge"></span>
+    </div>
+    <div id="wProgress" style="background:#1e293b;border-radius:10px;padding:10px 14px;margin-bottom:12px;display:flex;align-items:center;gap:12px">
+      <div style="position:relative;width:44px;height:44px;flex-shrink:0">
+        <svg width="44" height="44" class="ring"><circle class="ring-track" cx="22" cy="22" r="18" stroke-width="5"/><circle id="wRing" class="ring-fill" cx="22" cy="22" r="18" stroke-width="5" stroke-dasharray="113.1" stroke-dashoffset="113.1"/></svg>
+        <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:800" id="wRingPct">0%</div>
+      </div>
+      <div style="flex:1"><div id="wDoneCount" style="font-size:13px;color:#fff;font-weight:700">0/0</div><div id="wWarmup" style="font-size:10px;color:#64748b"></div></div>
+    </div>
+    <div id="wTimerBox" style="background:#1e293b;border-radius:10px;padding:10px 14px;margin-bottom:12px;display:flex;align-items:center;justify-content:space-between">
+      <div><div id="sessionTimerLbl" style="font-size:9px;color:#64748b">وقت الجلسة</div><div id="swDisplay" style="font-size:22px;font-weight:900;color:#22c55e;font-variant-numeric:tabular-nums">00:00</div></div>
+      <div style="display:flex;gap:8px">
+        <button id="swBtn" onclick="swToggle()" style="padding:8px 14px;border-radius:10px;border:none;background:#22c55e;color:#fff;font-weight:700;font-size:12px">▶ ابدأ</button>
+        <button onclick="swReset()" style="padding:8px 10px;border-radius:10px;border:1px solid #334155;background:transparent;color:#64748b;font-size:13px">↺</button>
+      </div>
+    </div>
+    <div id="wNote" style="display:none;border-radius:10px;padding:10px 12px;margin-bottom:12px"><div id="wNoteText" style="font-size:12px;line-height:1.6"></div></div>
+    <div id="exList"></div>
+    <div id="wCooldown" style="background:#0f2744;border-radius:12px;padding:12px 14px;margin-top:4px;border:1px solid #1e4080;display:none">
+      <div id="cooldownLbl" style="font-size:11px;color:#93c5fd;font-weight:700;margin-bottom:4px">🧘 تبريد</div>
+      <div id="cooldownText" style="font-size:13px;color:#7dd3fc"></div>
+    </div>
+    <div id="safetyBox" style="margin-top:10px;background:#1a1a2e;border-radius:10px;padding:10px 14px;border:1px solid #2d2d4e">
+      <div id="safetyLbl" style="font-size:11px;color:#a78bfa;font-weight:700;margin-bottom:4px">⚠️ السلامة</div>
+      <div id="safetyMsg" style="font-size:12px;color:#8b7cf8;line-height:1.6">تمارين البطن: ظهرك مقوّس للأمام دايماً. السباحة: إحماء قبل الدخول. HIIT: ارجع للكارديو لو حسيت دوخة.</div>
+    </div>
+  </div>
+</div>
+
+<!-- DIET -->
+<div class="screen" id="screen-diet">
+  <div style="background:#0a1628;padding:20px 16px 14px;border-bottom:1px solid #1e293b">
+    <div id="dietTitle" style="font-size:20px;font-weight:800;color:#fff;margin-bottom:2px">🥗 النظام الغذائي</div>
+    <div id="dietSub" style="font-size:12px;color:#64748b">مبسّط — بيت ومطعم وبعد السباحة</div>
+  </div>
+  <div style="padding:16px">
+    <div class="card" style="margin-bottom:16px">
+      <div style="display:flex;justify-content:space-between;margin-bottom:10px">
+        <div><div id="dailyKcalLbl" style="font-size:11px;color:#64748b">السعرات اليومية</div><div style="font-size:22px;font-weight:900;color:#22c55e">1400 <span style="font-size:11px;color:#64748b">kcal</span></div><div id="kcalTargetLbl" style="font-size:10px;color:#475569">الهدف: أقل من 2,000</div></div>
+        <div style="position:relative;width:68px;height:68px;flex-shrink:0">
+          <svg width="68" height="68" class="ring"><circle class="ring-track" cx="34" cy="34" r="27" stroke-width="7"/><circle class="ring-fill" cx="34" cy="34" r="27" stroke="#22c55e" stroke-width="7" stroke-dasharray="169.6" stroke-dashoffset="50"/></svg>
+          <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center"><div style="font-size:11px;font-weight:800;color:#22c55e">70%</div></div>
+        </div>
+      </div>
+      <div id="kcalBars"></div>
+    </div>
+    <div id="mealTabs" style="display:flex;gap:6px;overflow-x:auto;padding-bottom:6px;margin-bottom:14px;scrollbar-width:none"></div>
+    <div id="mealCard" class="card"></div>
+    <div style="background:#14532d;border-radius:12px;padding:12px 14px;margin-bottom:14px;border:1px solid #22c55e44">
+      <div id="restaurantTitle" style="font-size:12px;font-weight:700;color:#86efac;margin-bottom:4px">القاعدة الذهبية في المطعم</div>
+      <div id="restaurantMsg" style="font-size:13px;color:#d1fae5">اطلب دايماً: بروتين مشوي + سلطة. تجنب: أرز كثير، خبز أبيض، صلصات جاهزة.</div>
+    </div>
+    <div class="card">
+      <div id="rulesTitle" style="font-size:12px;color:#64748b;font-weight:700;margin-bottom:10px">⚡ قواعد لازم تعرفها</div>
+      <div id="rulesList"></div>
+    </div>
+  </div>
+</div>
+
+<!-- TIMER -->
+<div class="screen" id="screen-timer">
+  <div style="background:#0a1628;padding:20px 16px 14px;border-bottom:1px solid #1e293b">
+    <div id="timerTitle" style="font-size:20px;font-weight:800;color:#fff;margin-bottom:2px">⏱️ المؤقتات</div>
+    <div id="timerSub" style="font-size:12px;color:#64748b">تمرين · راحة · لابة سباحة</div>
+  </div>
+  <div style="padding:16px">
+    <div style="display:flex;gap:6px;margin-bottom:20px">
+      <button class="timer-tab active" id="ttab-sw" onclick="setTimerTab('sw')" style="background:#1e40af;color:#93c5fd"><span style="font-size:18px">⏱️</span><span id="swTabLbl">ستوب ووتش</span></button>
+      <button class="timer-tab" id="ttab-rest" onclick="setTimerTab('rest')" style="background:#1e293b;color:#64748b"><span style="font-size:18px">😮‍💨</span><span id="restTabLbl">راحة</span></button>
+      <button class="timer-tab" id="ttab-swim" onclick="setTimerTab('swim')" style="background:#1e293b;color:#64748b"><span style="font-size:18px">🏊</span><span id="swimTabLbl">لابة سباحة</span></button>
+    </div>
+    <!-- Stopwatch -->
+    <div id="tpanel-sw" style="background:#1e293b;border-radius:20px;padding:32px 20px;text-align:center">
+      <div id="totalSessionLbl" style="font-size:11px;color:#64748b;margin-bottom:16px;letter-spacing:2px">وقت الجلسة الكلي</div>
+      <div id="swBigDisplay" class="timer-display" style="color:#22c55e;margin-bottom:28px">00:00</div>
+      <div style="display:flex;gap:12px;justify-content:center">
+        <button id="swBigBtn" onclick="swToggle()" class="btn-primary" style="background:#22c55e;box-shadow:0 4px 20px #22c55e66">▶ ابدأ</button>
+        <button onclick="swReset()" class="btn-secondary">↺</button>
+      </div>
+    </div>
+    <!-- Rest -->
+    <div id="tpanel-rest" style="display:none;background:#1e293b;border-radius:20px;padding:24px 20px">
+      <div id="restBetweenLbl" style="font-size:11px;color:#64748b;margin-bottom:16px;letter-spacing:2px;text-align:center">مؤقت الراحة بين السيتات</div>
+      <div style="display:flex;justify-content:center;margin-bottom:20px">
+        <div style="position:relative;width:130px;height:130px">
+          <svg width="130" height="130" class="ring"><circle class="ring-track" cx="65" cy="65" r="55" stroke-width="10"/><circle id="restRing" class="ring-fill" cx="65" cy="65" r="55" stroke="#3b82f6" stroke-width="10" stroke-dasharray="345.4" stroke-dashoffset="0"/></svg>
+          <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center">
+            <div><div id="restDisplay" style="font-size:36px;font-weight:900;color:#93c5fd;font-variant-numeric:tabular-nums">60</div><div id="secsLbl" style="font-size:10px;color:#64748b">ثانية</div></div>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex;gap:6px;justify-content:center;margin-bottom:16px;flex-wrap:wrap">
+        <button onclick="setRest(30)" class="rest-preset" data-s="30" style="padding:6px 12px;border-radius:8px;border:1px solid #334155;background:transparent;color:#64748b;font-size:12px">30s</button>
+        <button onclick="setRest(45)" class="rest-preset" data-s="45" style="padding:6px 12px;border-radius:8px;border:1px solid #334155;background:transparent;color:#64748b;font-size:12px">45s</button>
+        <button onclick="setRest(60)" class="rest-preset active-preset" data-s="60" style="padding:6px 12px;border-radius:8px;border:1px solid #3b82f6;background:#3b82f622;color:#93c5fd;font-size:12px;font-weight:700">60s</button>
+        <button onclick="setRest(90)" class="rest-preset" data-s="90" style="padding:6px 12px;border-radius:8px;border:1px solid #334155;background:transparent;color:#64748b;font-size:12px">90s</button>
+        <button onclick="setRest(120)" class="rest-preset" data-s="120" style="padding:6px 12px;border-radius:8px;border:1px solid #334155;background:transparent;color:#64748b;font-size:12px">120s</button>
+      </div>
+      <div style="display:flex;gap:10px">
+        <button id="restBtn" onclick="restToggle()" style="flex:1;padding:13px;border-radius:12px;border:none;background:#3b82f6;color:#fff;font-size:14px;font-weight:700" id="restBtnLbl">▶ ابدأ الراحة</button>
+        <button onclick="restReset()" style="padding:13px 16px;border-radius:12px;border:1px solid #334155;background:transparent;color:#64748b;font-size:14px">↺</button>
+      </div>
+      <div id="restGuideLbl" style="margin-top:12px;font-size:11px;color:#475569;text-align:center">بطن: 45-60ث • كارديو: لا راحة • سباحة: 45-90ث</div>
+    </div>
+    <!-- Swim Lap -->
+    <div id="tpanel-swim" style="display:none;background:#1e293b;border-radius:20px;padding:24px 20px">
+      <div id="lapTimerLbl" style="font-size:11px;color:#06b6d4;margin-bottom:16px;letter-spacing:2px;text-align:center;font-weight:700">🏊 مؤقت اللابة</div>
+      <div style="display:flex;justify-content:center;margin-bottom:20px">
+        <div style="position:relative;width:130px;height:130px">
+          <svg width="130" height="130" class="ring"><circle class="ring-track" cx="65" cy="65" r="55" stroke-width="10"/><circle id="lapRing" class="ring-fill" cx="65" cy="65" r="55" stroke="#06b6d4" stroke-width="10" stroke-dasharray="345.4" stroke-dashoffset="0"/></svg>
+          <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center">
+            <div><div id="lapDisplay" style="font-size:36px;font-weight:900;color:#67e8f9;font-variant-numeric:tabular-nums">35</div><div id="lapSecsLbl" style="font-size:10px;color:#64748b">ثانية</div></div>
+          </div>
+        </div>
+      </div>
+      <div id="lapLengthLbl" style="font-size:11px;color:#64748b;margin-bottom:8px;text-align:center">طول اللابة</div>
+      <div style="display:flex;gap:6px;justify-content:center;margin-bottom:16px">
+        <button onclick="setLap(35,'25m')" class="lap-preset active-lap" data-s="35" style="padding:8px 16px;border-radius:8px;border:1px solid #06b6d4;background:#06b6d422;color:#67e8f9;font-size:13px;font-weight:700">25m</button>
+        <button onclick="setLap(70,'50m')" class="lap-preset" data-s="70" style="padding:8px 16px;border-radius:8px;border:1px solid #334155;background:transparent;color:#64748b;font-size:13px">50m</button>
+        <button onclick="setLap(140,'100m')" class="lap-preset" data-s="140" style="padding:8px 16px;border-radius:8px;border:1px solid #334155;background:transparent;color:#64748b;font-size:13px">100m</button>
+      </div>
+      <div style="display:flex;gap:10px">
+        <button id="lapBtn" onclick="lapToggle()" style="flex:1;padding:13px;border-radius:12px;border:none;background:#06b6d4;color:#fff;font-size:14px;font-weight:700">▶ ابدأ اللابة</button>
+        <button onclick="lapReset()" style="padding:13px 16px;border-radius:12px;border:1px solid #334155;background:transparent;color:#64748b;font-size:14px">↺</button>
+      </div>
+      <div id="targetTimesBox" style="margin-top:12px;background:#0f172a;border-radius:10px;padding:10px 12px">
+        <div id="targetTimesLbl" style="font-size:11px;color:#06b6d4;font-weight:700;margin-bottom:4px">الأوقات المستهدفة</div>
+        <div id="targetTimesMsg" style="font-size:11px;color:#94a3b8;line-height:1.8">25م: 35-45 ث | 50م: 70-90 ث<br>راحة بين اللابات: 45-60 ث</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TAB BAR -->
+<div id="tabBar">
+  <button class="tab-btn active" id="tabBtn-home" onclick="goTab('home')">
+    <span class="icon">🏠</span><span class="label" id="tabLbl0">الرئيسية</span><div class="tab-indicator"></div>
+  </button>
+  <button class="tab-btn" id="tabBtn-workout" onclick="goTab('workout')">
+    <span class="icon">💪</span><span class="label" id="tabLbl1">تمارين</span><div class="tab-indicator"></div>
+  </button>
+  <button class="tab-btn" id="tabBtn-diet" onclick="goTab('diet')">
+    <span class="icon">🥗</span><span class="label" id="tabLbl2">الأكل</span><div class="tab-indicator"></div>
+  </button>
+  <button class="tab-btn" id="tabBtn-timer" onclick="goTab('timer')">
+    <span class="icon">⏱️</span><span class="label" id="tabLbl3">مؤقت</span><div class="tab-indicator"></div>
+  </button>
+</div>
+
+<script>
+// ═══════════════════════════════════
+// DATA
+// ═══════════════════════════════════
+const LANG = {
+ar:{
+  dir:"rtl",name:"حسام الدين مدني",gym:"Gulfinn Gym — المتينة",active:"● نشط",langBtn:"English",
+  tabs:["الرئيسية","تمارين","الأكل","مؤقت"],
+  progressTitle:"التقدم نحو الهدف",targetLbl:"الهدف: 70.6 كجم",nowLbl:"الآن",loseLbl:"⬇ 22.6 كجم للإنقاص",
+  todayLbl:"اليوم",weekLbl:"الأسبوع",statsLbl:"إحصائياتك",
+  coachTip:"💡 نصيحة المدرب",
+  coachMsg:"الدهون الحشوية (Level 16) تستجيب لمزيج السباحة + HIIT. 3 جلسات سباحة أسبوعياً وستلاحظ فرقاً خلال 6 أسابيع.",
+  inbodyLbl:"InBody",
+  workoutTitle:"💪 التمارين",workoutSub:"6 أيام | بطن + كارديو + سباحة",
+  sessionTimerLbl:"وقت الجلسة",startBtn:"▶ ابدأ",pauseBtn:"⏸ وقف",
+  cooldownLbl:"🧘 تبريد",safetyLbl:"⚠️ السلامة",
+  safetyMsg:"تمارين البطن: ظهرك مقوّس للأمام دايماً. السباحة: إحماء قبل الدخول. HIIT: ارجع للكارديو لو حسيت دوخة.",
+  muscleLbl:"العضلة",coachNote:"💡 نصيحة المدرب",protocolLbl:"بروتوكول التمرين",
+  dietTitle:"🥗 النظام الغذائي",dietSub:"مبسّط — بيت ومطعم وبعد السباحة",
+  dailyKcalLbl:"السعرات اليومية",kcalTargetLbl:"الهدف: أقل من 2,000",ofTarget:"من الهدف",
+  restaurantTitle:"القاعدة الذهبية في المطعم",
+  restaurantMsg:"اطلب دايماً: بروتين مشوي + سلطة. تجنب: أرز كثير، خبز أبيض، صلصات جاهزة.",
+  rulesTitle:"⚡ قواعد لازم تعرفها",
+  timerTitle:"⏱️ المؤقتات",timerSub:"تمرين · راحة · لابة سباحة",
+  swTab:"ستوب ووتش",restTab:"راحة",swimTab:"لابة سباحة",
+  totalSessionLbl:"وقت الجلسة الكلي",restBetweenLbl:"مؤقت الراحة بين السيتات",
+  lapTimerLbl:"🏊 مؤقت اللابة",lapLengthLbl:"طول اللابة",
+  startRest:"▶ ابدأ الراحة",startLap:"▶ ابدأ اللابة",
+  restDone:"✓ خلّص!",lapDone:"🏁",
+  againBtn:"▶ مرة ثانية",newLapBtn:"▶ لابة جديدة",
+  secsLbl:"ثانية",restGuideLbl:"بطن: 45-60ث • كارديو: لا راحة • سباحة: 45-90ث",
+  targetTimesLbl:"الأوقات المستهدفة",targetTimesMsg:"25م: 35-45 ث | 50م: 70-90 ث<br>راحة بين اللابات: 45-60 ث",
+  weekDays:["أحد","اثنين","ثلاثاء","أربعاء","خميس","جمعة","سبت"],
+  weekDaysFull:["الأحد","الاثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
+  weekLabels:["بطن + Core","كارديو جيم","سباحة","بطن + حوض","كارديو مكثف","سباحة + استرخاء","راحة نشطة"],
+  mealLabels:["الفطور","سناك ص","الغداء","سناك م","العشاء"],
+  mealTimes:["7:00 ص","10:30 ص","1:30 م","4:30 م","7:30 م"],
+  statsData:[
+    {label:"وزن الدهون",value:"33.2",unit:"كجم",color:"#ef4444"},
+    {label:"كتلة عضلية",value:"33.8",unit:"كجم",color:"#22c55e"},
+    {label:"دهون حشوية",value:"Lv.16",unit:"→10",color:"#ef4444"},
+    {label:"BMI",value:"32.6",unit:"",color:"#f59e0b"},
+    {label:"هدف سعرات",value:"≤2000",unit:"kcal",color:"#3b82f6"},
+    {label:"مدة البرنامج",value:"6-9",unit:"أشهر",color:"#8b5cf6"},
+  ],
+  warmupLbl:"إحماء",setsLbl:"سيت",restLbl:"راحة",
+  beginner:"مبتدئ",intermediate:"متوسط",advanced:"متقدم",light:"خفيف",
+  rules:[
+    {icon:"💧",text:"3 لتر ماء يومياً — كوب قبل كل وجبة"},
+    {icon:"🚫",text:"ممنوع: سكر، غازي، عصير، خبز أبيض"},
+    {icon:"⏰",text:"آخر وجبة قبل النوم بـ 3 ساعات"},
+    {icon:"☕",text:"قهوة سادة قبل التمرين بـ 30 دقيقة — تزيد حرق الدهون 15%"},
+    {icon:"🏊",text:"بعد السباحة: بروتين خلال 30 دقيقة — مهم للعضلات"},
+    {icon:"🛒",text:"اشتري أسبوعياً: بيض، تونة، لبن يوناني، مكسرات"},
+  ],
+},
+en:{
+  dir:"ltr",name:"Hosameldin Medani",gym:"Gulfinn Gym — Al Muteena",active:"● Active",langBtn:"عربي",
+  tabs:["Home","Workout","Diet","Timer"],
+  progressTitle:"Progress to Goal",targetLbl:"Target: 70.6 kg",nowLbl:"Now",loseLbl:"⬇ 22.6 kg to lose",
+  todayLbl:"Today",weekLbl:"This Week",statsLbl:"Your Stats",
+  coachTip:"💡 Coach's Tip",
+  coachMsg:"Visceral Fat Level 16 responds best to Swimming + HIIT. 3 swim sessions per week will make a visible difference within 6 weeks.",
+  inbodyLbl:"InBody",
+  workoutTitle:"💪 Workouts",workoutSub:"6 days | Abs + Cardio + Swimming",
+  sessionTimerLbl:"Session Time",startBtn:"▶ Start",pauseBtn:"⏸ Pause",
+  cooldownLbl:"🧘 Cooldown",safetyLbl:"⚠️ Safety",
+  safetyMsg:"Ab exercises: always round your back forward. Swimming: warm up before the pool. HIIT: return to steady cardio if you feel dizzy.",
+  muscleLbl:"Muscle",coachNote:"💡 Coach's Tip",protocolLbl:"Exercise Protocol",
+  dietTitle:"🥗 Diet Plan",dietSub:"Simple — home, restaurant & post-swim",
+  dailyKcalLbl:"Daily Calories",kcalTargetLbl:"Target: under 2,000",ofTarget:"of target",
+  restaurantTitle:"Golden Rule at Restaurants",
+  restaurantMsg:"Always order: grilled protein + salad. Avoid: white rice, white bread, ready-made sauces.",
+  rulesTitle:"⚡ Key Rules",
+  timerTitle:"⏱️ Timers",timerSub:"Workout · Rest · Swim Lap",
+  swTab:"Stopwatch",restTab:"Rest",swimTab:"Swim Lap",
+  totalSessionLbl:"Total Session Time",restBetweenLbl:"Rest Timer Between Sets",
+  lapTimerLbl:"🏊 Lap Timer",lapLengthLbl:"Lap Distance",
+  startRest:"▶ Start Rest",startLap:"▶ Start Lap",
+  restDone:"✓ Done!",lapDone:"🏁",
+  againBtn:"▶ Again",newLapBtn:"▶ New Lap",
+  secsLbl:"seconds",restGuideLbl:"Abs: 45-60s • Cardio: no rest • Swim: 45-90s",
+  targetTimesLbl:"Your Target Times",targetTimesMsg:"25m: 35-45 sec | 50m: 70-90 sec<br>Rest between laps: 45-60 sec",
+  weekDays:["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],
+  weekDaysFull:["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+  weekLabels:["Abs + Core","Gym Cardio","Swimming","Abs + Pool","HIIT Cardio","Swim + Recovery","Active Rest"],
+  mealLabels:["Breakfast","Snack AM","Lunch","Snack PM","Dinner"],
+  mealTimes:["7:00 AM","10:30 AM","1:30 PM","4:30 PM","7:30 PM"],
+  statsData:[
+    {label:"Fat Mass",value:"33.2",unit:"kg",color:"#ef4444"},
+    {label:"Muscle Mass",value:"33.8",unit:"kg",color:"#22c55e"},
+    {label:"Visceral Fat",value:"Lv.16",unit:"→10",color:"#ef4444"},
+    {label:"BMI",value:"32.6",unit:"",color:"#f59e0b"},
+    {label:"Calorie Target",value:"≤2000",unit:"kcal",color:"#3b82f6"},
+    {label:"Program Duration",value:"6-9",unit:"months",color:"#8b5cf6"},
+  ],
+  warmupLbl:"Warm-up",setsLbl:"sets",restLbl:"rest",
+  beginner:"Beginner",intermediate:"Intermediate",advanced:"Advanced",light:"Light",
+  rules:[
+    {icon:"💧",text:"Drink 3 liters of water daily — one glass before each meal"},
+    {icon:"🚫",text:"Avoid: sugar, soda, juice, white bread"},
+    {icon:"⏰",text:"Last meal at least 3 hours before sleep"},
+    {icon:"☕",text:"Black coffee 30 min before workout — boosts fat burn by 15%"},
+    {icon:"🏊",text:"After swimming: protein within 30 min — critical for muscle recovery"},
+    {icon:"🛒",text:"Weekly shop: eggs, canned tuna, Greek yogurt, nuts"},
+  ],
+}};
+
+const WEEK = {
+ar:[
+  {type:"abs",color:"#ef4444",icon:"🔥",kcal:180,warmup:"5 دقائق مشي خفيف + تمدد",cooldown:"تمدد للبطن 5 دقائق",note:null,
+   ex:[{icon:"💪",name:"Crunches",sets:3,reps:"20",rest:45,muscle:"Rectus Abdominis",tip:"ظهرك مقوّس — لا ترفع الظهر كله",level:"مبتدئ"},
+       {icon:"🦵",name:"Leg Raises",sets:3,reps:"15",rest:60,muscle:"Lower Abs",tip:"ارفع الركبتين للصدر — انزل ببطء",level:"متوسط"},
+       {icon:"⬇️",name:"High-Pulley Crunches",sets:3,reps:"15",rest:60,muscle:"Rectus + Oblique",tip:"وزن خفيف — ركز على الإحساس",level:"متوسط"},
+       {icon:"↔️",name:"Side Bends",sets:3,reps:"20 لكل جهة",rest:45,muscle:"Obliques",tip:"دمبل 5-8 كجم — بطيء في الرجوع",level:"مبتدئ"},
+       {icon:"🧘",name:"Plank",sets:3,reps:"30-45 ثانية",rest:60,muscle:"Full Core",tip:"جسمك خط مستقيم — شد البطن للداخل",level:"مبتدئ"}]},
+  {type:"cardio",color:"#3b82f6",icon:"🏃",kcal:380,warmup:"5 دقائق مشي تريدميل",cooldown:"5 دقائق مشي بطيء + تمدد",
+   note:"🎯 هدف: 70-80% الحد الأقصى = ~128 نبضة/دقيقة",
+   ex:[{icon:"🏃",name:"Treadmill فترات",sets:null,reps:null,rest:null,duration:"32 دقيقة",muscle:"Cardiovascular",tip:"3 دق متوسط → 1 دق سريع → كرر 8 مرات",level:"متوسط",
+        protocol:[{ph:"إحماء",t:"5 دق",sp:"5 كم/س",int:30},{ph:"متوسط",t:"3 دق",sp:"7 كم/س",int:65},{ph:"سريع",t:"1 دق",sp:"9 كم/س",int:90},{ph:"متوسط",t:"3 دق",sp:"7 كم/س",int:65},{ph:"تهدئة",t:"5 دق",sp:"4.5 كم/س",int:25}]},
+       {icon:"🚣",name:"Rowing Machine",sets:null,reps:null,rest:null,duration:"15 دقيقة",muscle:"Full Body",tip:"اضغط بالرجلين أولاً ثم اسحب بالذراعين",level:"متوسط"},
+       {icon:"🚴",name:"Stationary Bike",sets:null,reps:null,rest:null,duration:"15 دقيقة",muscle:"Legs + Cardio",tip:"مقاومة متوسطة — 70-80 دورة/دقيقة",level:"مبتدئ"}]},
+  {type:"swim",color:"#06b6d4",icon:"🏊",kcal:420,warmup:"مشي في الحوض 5 دقائق",cooldown:"عوم بطيء 2 دقيقة + تمدد",
+   note:"🔵 السباحة: 420+ kcal/ساعة، صفر ضغط على المفاصل، تحرق الدهون الحشوية بكفاءة عالية",
+   ex:[{icon:"🏊",name:"Freestyle تدريج",sets:4,reps:"2 لابة (50م)",rest:60,muscle:"Full Body",tip:"تنفس كل 3 ضربات — هادئاً ولا تتسرع",level:"متوسط"},
+       {icon:"🦵",name:"Kickboard (رجلين)",sets:4,reps:"1 لابة (25م)",rest:45,muscle:"Legs + Glutes",tip:"الكيكبورد أمامك — فقط رجليك تشتغل",level:"مبتدئ"},
+       {icon:"💪",name:"Pull Buoy (ذراعين)",sets:4,reps:"1 لابة (25م)",rest:45,muscle:"Upper Body",tip:"البويا بين ركبتيك — فقط ذراعيك",level:"مبتدئ"},
+       {icon:"🚶",name:"Aqua Jogging",sets:null,reps:null,rest:null,duration:"10 دقائق",muscle:"Cardio / مقاومة طبيعية",tip:"ركض في الماء — مقاومة طبيعية ممتازة",level:"مبتدئ"},
+       {icon:"🤸",name:"Flutter Kicks (حائط)",sets:3,reps:"30 ثانية",rest:30,muscle:"Lower Abs",tip:"إمسك حافة الحوض — رجليك بسرعة",level:"مبتدئ"}]},
+  {type:"abs",color:"#ef4444",icon:"🔥",kcal:200,warmup:"5 دقائق مشي + تمدد",cooldown:"تمدد للبطن والخصر 5 دقائق",note:null,
+   ex:[{icon:"🏋️",name:"Sit-Ups",sets:3,reps:"15",rest:60,muscle:"Rectus + Hip Flexors",tip:"ركبتيك مثنيتان — لا تثبت قدميك",level:"مبتدئ"},
+       {icon:"🏋️",name:"Hanging Leg Raises",sets:3,reps:"10-12",rest:90,muscle:"Lower Abs — الأقوى",tip:"تعلق بالبار — ارفع الركبتين للصدر ببطء",level:"متقدم"},
+       {icon:"⚙️",name:"Machine Crunches",sets:3,reps:"15",rest:60,muscle:"Full Abs",tip:"وزن خفيف — بطيء في النزول",level:"متوسط"},
+       {icon:"📐",name:"Incline Leg Raises",sets:3,reps:"12",rest:60,muscle:"Lower Abs + Obliques",tip:"على البنش المائل — ارفع الحوض في النهاية",level:"متوسط"},
+       {icon:"🔄",name:"Broomstick Twists",sets:2,reps:"60 ثانية",rest:45,muscle:"Obliques",tip:"الحوض ثابت — فقط الجذع يدور",level:"مبتدئ"}]},
+  {type:"cardio",color:"#f59e0b",icon:"⚡",kcal:450,warmup:"5 دقائق إحماء",cooldown:"مشي 5 دقائق + تمدد كامل",
+   note:"⚡ HIIT: 3× أكفأ من الكارديو الاعتيادي لحرق الدهون الحشوية",
+   ex:[{icon:"💨",name:"HIIT — Treadmill",sets:null,reps:null,rest:null,duration:"25 دقيقة",muscle:"Cardiovascular + Fat Burn",tip:"30ث سريع جداً → 90ث هادئ → كرر 10 مرات",level:"متقدم",
+        protocol:[{ph:"إحماء",t:"3 دق",sp:"5 كم/س",int:25},{ph:"سبرينت",t:"30ث",sp:"11 كم/س",int:95},{ph:"استراحة",t:"90ث",sp:"5 كم/س",int:40},{ph:"سبرينت",t:"30ث",sp:"11 كم/س",int:95},{ph:"تهدئة",t:"3 دق",sp:"4 كم/س",int:20}]},
+       {icon:"🔄",name:"Elliptical",sets:null,reps:null,rest:null,duration:"20 دقيقة",muscle:"Full Body",tip:"مقاومة 7-9 — إيقاع ثابت",level:"متوسط"},
+       {icon:"🪃",name:"Jump Rope",sets:5,reps:"2 دقيقة",rest:60,muscle:"Cardio + Coordination",tip:"قفز خفيف — ارفع الكعب قليلاً فقط",level:"متوسط"}]},
+  {type:"swim",color:"#06b6d4",icon:"🏊",kcal:380,warmup:"مشي في الحوض 5 دقائق",cooldown:"عوم ظهر بطيء 5 دقائق",
+   note:"🌊 يوم الجمعة خفيف — ركز على الاسترخاء والتعافي",
+   ex:[{icon:"🏊",name:"سباحة متواصل",sets:null,reps:null,rest:null,duration:"20 دقيقة",muscle:"Full Body Endurance",tip:"عوم متواصل بوتيرة هادئة ثابتة",level:"متوسط"},
+       {icon:"🔄",name:"Backstroke (ظهر)",sets:4,reps:"1 لابة (25م)",rest:60,muscle:"Upper Back + Core",tip:"الوجه للسما — جسمك مستقيم",level:"متوسط"},
+       {icon:"🏃",name:"Aqua Jogging",sets:null,reps:null,rest:null,duration:"15 دقيقة",muscle:"Cardio + Core",tip:"ركض في الماء في الجزء الضحل",level:"مبتدئ"},
+       {icon:"🦵",name:"Flutter Kicks (حائط)",sets:4,reps:"30 ثانية",rest:30,muscle:"Lower Abs",tip:"إمسك حافة الحوض — ركليتيك بسرعة",level:"مبتدئ"}]},
+  {type:"rest",color:"#6b7280",icon:"😴",kcal:80,warmup:null,cooldown:null,
+   note:"😴 الراحة جزء من البرنامج — العضلات تتجدد يوم السبت",
+   ex:[{icon:"🚶",name:"مشي خفيف",sets:null,reps:null,rest:null,duration:"20-30 دقيقة",muscle:"Recovery",tip:"مشي هادئ — بدون ضغط",level:"خفيف"},
+       {icon:"🧘",name:"تمدد كامل",sets:null,reps:null,rest:null,duration:"15 دقيقة",muscle:"Flexibility",tip:"30 ثانية لكل وضعية",level:"خفيف"}]},
+],
+en:[
+  {type:"abs",color:"#ef4444",icon:"🔥",kcal:180,warmup:"5 min light walk + back stretch",cooldown:"5 min abs & back stretch",note:null,
+   ex:[{icon:"💪",name:"Crunches",sets:3,reps:"20",rest:45,muscle:"Rectus Abdominis",tip:"Round your back — don't lift your full back off the floor",level:"Beginner"},
+       {icon:"🦵",name:"Leg Raises",sets:3,reps:"15",rest:60,muscle:"Lower Abs",tip:"Bring knees to chest — lower slowly",level:"Intermediate"},
+       {icon:"⬇️",name:"High-Pulley Crunches",sets:3,reps:"15",rest:60,muscle:"Rectus + Oblique",tip:"Light weight — focus on the feel, not the load",level:"Intermediate"},
+       {icon:"↔️",name:"Side Bends",sets:3,reps:"20 each side",rest:45,muscle:"Obliques",tip:"5-8 kg dumbbell — slow on the return",level:"Beginner"},
+       {icon:"🧘",name:"Plank",sets:3,reps:"30-45 sec",rest:60,muscle:"Full Core",tip:"Body straight line — pull belly in",level:"Beginner"}]},
+  {type:"cardio",color:"#3b82f6",icon:"🏃",kcal:380,warmup:"5 min slow treadmill walk",cooldown:"5 min slow walk + leg stretch",
+   note:"🎯 Target: 70-80% max HR = (220-50)×0.75 = ~128 bpm",
+   ex:[{icon:"🏃",name:"Treadmill Intervals",sets:null,reps:null,rest:null,duration:"32 min",muscle:"Cardiovascular",tip:"3 min moderate → 1 min fast → repeat 8 times",level:"Intermediate",
+        protocol:[{ph:"Warmup",t:"5 min",sp:"5 km/h",int:30},{ph:"Moderate",t:"3 min",sp:"7 km/h",int:65},{ph:"Fast",t:"1 min",sp:"9 km/h",int:90},{ph:"Moderate",t:"3 min",sp:"7 km/h",int:65},{ph:"Cooldown",t:"5 min",sp:"4.5 km/h",int:25}]},
+       {icon:"🚣",name:"Rowing Machine",sets:null,reps:null,rest:null,duration:"15 min",muscle:"Full Body",tip:"Push with legs first, then pull with arms",level:"Intermediate"},
+       {icon:"🚴",name:"Stationary Bike",sets:null,reps:null,rest:null,duration:"15 min",muscle:"Legs + Cardio",tip:"Medium resistance — 70-80 RPM",level:"Beginner"}]},
+  {type:"swim",color:"#06b6d4",icon:"🏊",kcal:420,warmup:"5 min pool walking",cooldown:"2 min slow swim + stretch",
+   note:"🔵 Swimming: 420+ kcal/hr, zero joint stress, very effective against visceral fat",
+   ex:[{icon:"🏊",name:"Freestyle Progressive",sets:4,reps:"2 laps (50m)",rest:60,muscle:"Full Body",tip:"Breathe every 3 strokes — stay relaxed, don't rush",level:"Intermediate"},
+       {icon:"🦵",name:"Kickboard (Legs only)",sets:4,reps:"1 lap (25m)",rest:45,muscle:"Legs + Glutes",tip:"Hold kickboard — only legs work",level:"Beginner"},
+       {icon:"💪",name:"Pull Buoy (Arms only)",sets:4,reps:"1 lap (25m)",rest:45,muscle:"Upper Body",tip:"Buoy between knees — arms only",level:"Beginner"},
+       {icon:"🚶",name:"Aqua Jogging",sets:null,reps:null,rest:null,duration:"10 min",muscle:"Cardio / Zero Joint Stress",tip:"Run in water — natural resistance, great cardio",level:"Beginner"},
+       {icon:"🤸",name:"Flutter Kicks (Wall)",sets:3,reps:"30 sec",rest:30,muscle:"Lower Abs",tip:"Hold pool edge — rapid small kicks",level:"Beginner"}]},
+  {type:"abs",color:"#ef4444",icon:"🔥",kcal:200,warmup:"5 min walk + stretch",cooldown:"5 min abs & lower back stretch",note:null,
+   ex:[{icon:"🏋️",name:"Sit-Ups",sets:3,reps:"15",rest:60,muscle:"Rectus + Hip Flexors",tip:"Knees bent — don't anchor feet",level:"Beginner"},
+       {icon:"🏋️",name:"Hanging Leg Raises",sets:3,reps:"10-12",rest:90,muscle:"Lower Abs — Most Effective",tip:"Hang from bar — raise knees to chest slowly",level:"Advanced"},
+       {icon:"⚙️",name:"Machine Crunches",sets:3,reps:"15",rest:60,muscle:"Full Abs",tip:"Light weight — slow on the way down",level:"Intermediate"},
+       {icon:"📐",name:"Incline Leg Raises",sets:3,reps:"12",rest:60,muscle:"Lower Abs + Obliques",tip:"On incline bench — tilt pelvis at the top",level:"Intermediate"},
+       {icon:"🔄",name:"Broomstick Twists",sets:2,reps:"60 sec",rest:45,muscle:"Obliques",tip:"Pelvis fixed — only torso rotates",level:"Beginner"}]},
+  {type:"cardio",color:"#f59e0b",icon:"⚡",kcal:450,warmup:"5 min light warm-up",cooldown:"5 min walk + full stretch",
+   note:"⚡ HIIT is 3× more effective than steady cardio at reducing visceral fat",
+   ex:[{icon:"💨",name:"HIIT — Treadmill",sets:null,reps:null,rest:null,duration:"25 min",muscle:"Cardiovascular + Fat Burn",tip:"30s max sprint → 90s easy → repeat 10 times",level:"Advanced",
+        protocol:[{ph:"Warmup",t:"3 min",sp:"5 km/h",int:25},{ph:"Sprint",t:"30s",sp:"11 km/h",int:95},{ph:"Recovery",t:"90s",sp:"5 km/h",int:40},{ph:"Sprint",t:"30s",sp:"11 km/h",int:95},{ph:"Cooldown",t:"3 min",sp:"4 km/h",int:20}]},
+       {icon:"🔄",name:"Elliptical",sets:null,reps:null,rest:null,duration:"20 min",muscle:"Full Body",tip:"Resistance 7-9 — steady rhythm",level:"Intermediate"},
+       {icon:"🪃",name:"Jump Rope",sets:5,reps:"2 min",rest:60,muscle:"Cardio + Coordination",tip:"Light jumps — barely lift heels",level:"Intermediate"}]},
+  {type:"swim",color:"#06b6d4",icon:"🏊",kcal:380,warmup:"5 min pool walking",cooldown:"5 min slow backstroke — full relaxation",
+   note:"🌊 Friday is lighter — focus on relaxation and recovery",
+   ex:[{icon:"🏊",name:"Continuous Laps",sets:null,reps:null,rest:null,duration:"20 min",muscle:"Full Body Endurance",tip:"Continuous swim at steady, comfortable pace",level:"Intermediate"},
+       {icon:"🔄",name:"Backstroke",sets:4,reps:"1 lap (25m)",rest:60,muscle:"Upper Back + Core",tip:"Face up — keep body horizontal and straight",level:"Intermediate"},
+       {icon:"🏃",name:"Aqua Jogging",sets:null,reps:null,rest:null,duration:"15 min",muscle:"Cardio + Core",tip:"Run in shallow end or with flotation belt",level:"Beginner"},
+       {icon:"🦵",name:"Wall Flutter Kicks",sets:4,reps:"30 sec",rest:30,muscle:"Lower Abs",tip:"Hold pool edge — rapid small kicks",level:"Beginner"}]},
+  {type:"rest",color:"#6b7280",icon:"😴",kcal:80,warmup:null,cooldown:null,
+   note:"😴 Rest is part of the program — muscles rebuild on Saturday",
+   ex:[{icon:"🚶",name:"Light Walk",sets:null,reps:null,rest:null,duration:"20-30 min",muscle:"Recovery",tip:"Easy walk — no pressure",level:"Light"},
+       {icon:"🧘",name:"Full Body Stretch",sets:null,reps:null,rest:null,duration:"15 min",muscle:"Flexibility",tip:"30 seconds per position",level:"Light"}]},
+]};
+
+const MEALS = {
+ar:[
+  {id:"breakfast",icon:"☕",color:"#f59e0b",kcal:370,
+   options:[
+    {lbl:"أيام 1/4",items:["3 بيضات مسلوقة أو عيون","جبن قريش 100 جم","خيار + طماطم","قهوة سادة ✅"]},
+    {lbl:"أيام 2/5",items:["شوفان 50 جم بالماء","ملعقة زبدة فول سوداني","تفاحة صغيرة","قهوة سادة ✅"]},
+    {lbl:"أيام 3/6/7",items:["لبن يوناني 200 جم بدون سكر","مكسرات 30 جم","فراولة أو توت","قهوة سادة ✅"]},
+   ]},
+  {id:"snack1",icon:"🥜",color:"#84cc16",kcal:120,
+   options:[{lbl:"اختر واحد",items:["لوز أو جوز 20 جم","أو تفاحة أو برتقال","أو لبن خالي الدسم"]}]},
+  {id:"lunch",icon:"🍽️",color:"#22c55e",kcal:510,
+   options:[
+    {lbl:"في المطعم ✅",items:["دجاج مشوي + سلطة","سمك مشوي + خضار","كباب + سلطة (لا أرز كثير)","شاورما دجاج بدون خبز"]},
+    {lbl:"في البيت",items:["صدر دجاج 200 جم","أرز بني نص كوب","سلطة كبيرة بزيت زيتون","خضار مسلوق أو مشوي"]},
+   ]},
+  {id:"snack2",icon:"🫐",color:"#06b6d4",kcal:130,
+   options:[{lbl:"قبل التمرين",items:["لبن يوناني بدون سكر","أو موزة + لوز","أو بيضتان مسلوقتان"]}]},
+  {id:"dinner",icon:"🌙",color:"#8b5cf6",kcal:270,
+   options:[
+    {lbl:"الأسرع",items:["تونة في الماء + خيار طماطم","ليمون + زيت زيتون"]},
+    {lbl:"في البيت",items:["بيضتان + جبن قريش","سلطة كبيرة","خبز أسمر شريحة"]},
+    {lbl:"بعد السباحة",items:["لبن يوناني 200 جم","موزة + مكسرات","بروتين مهم بعد السباحة!"]},
+   ]},
+],
+en:[
+  {id:"breakfast",icon:"☕",color:"#f59e0b",kcal:370,
+   options:[
+    {lbl:"Days 1/4",items:["3 boiled or fried eggs","100g cottage cheese","Cucumber + tomatoes","Black coffee ✅"]},
+    {lbl:"Days 2/5",items:["50g oats with water","1 tbsp peanut butter","Small apple","Black coffee ✅"]},
+    {lbl:"Days 3/6/7",items:["200g Greek yogurt (no sugar)","30g mixed nuts","Strawberries or blueberries","Black coffee ✅"]},
+   ]},
+  {id:"snack1",icon:"🥜",color:"#84cc16",kcal:120,
+   options:[{lbl:"Choose one",items:["20g almonds or walnuts","OR apple or orange","OR low-fat yogurt"]}]},
+  {id:"lunch",icon:"🍽️",color:"#22c55e",kcal:510,
+   options:[
+    {lbl:"At Restaurant ✅",items:["Grilled chicken + salad","Grilled fish + vegetables","Kebab + salad (skip extra rice)","Chicken shawarma without bread, in bowl"]},
+    {lbl:"At Home",items:["200g chicken breast","Half cup brown rice","Large salad with olive oil","Steamed or grilled vegetables"]},
+   ]},
+  {id:"snack2",icon:"🫐",color:"#06b6d4",kcal:130,
+   options:[{lbl:"Pre-Workout",items:["Greek yogurt, no sugar","OR banana + almonds","OR 2 boiled eggs"]}]},
+  {id:"dinner",icon:"🌙",color:"#8b5cf6",kcal:270,
+   options:[
+    {lbl:"Fastest",items:["Canned tuna + cucumber & tomatoes","Lemon + olive oil"]},
+    {lbl:"At Home",items:["2 eggs + cottage cheese","Large salad","1 slice brown bread"]},
+    {lbl:"After Swim",items:["200g Greek yogurt","Banana + nuts","Post-swim protein is important!"]},
+   ]},
+]};
+
+// ═══════════════════════════════════
+// STATE
+// ═══════════════════════════════════
+let lang = "ar";
+let currentTab = "home";
+let currentWorkoutDay = new Date().getDay();
+let expandedEx = null;
+let doneMap = {};
+let activeMeal = "breakfast";
+let mealOptIdx = 0;
+let timerTab = "sw";
+
+// Stopwatch
+let swSecs = 0, swOn = false, swInterval = null;
+// Rest countdown
+let restSec = 60, restRemain = 60, restOn = false, restInterval = null, restDone = false;
+// Lap countdown
+let lapSec = 35, lapRemain = 35, lapOn = false, lapInterval = null, lapDone = false;
+
+// ═══════════════════════════════════
+// LANG
+// ═══════════════════════════════════
+function toggleLang(){
+  lang = lang==="ar"?"en":"ar";
+  document.documentElement.dir = LANG[lang].dir;
+  document.documentElement.lang = lang;
+  renderAll();
+}
+
+function t(key){return LANG[lang][key]||"";}
+function week(){return WEEK[lang];}
+function meals(){return MEALS[lang];}
+
+// ═══════════════════════════════════
+// NAVIGATION
+// ═══════════════════════════════════
+function goTab(id, day){
+  currentTab = id;
+  if(day!==undefined) currentWorkoutDay = day;
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  document.getElementById('screen-'+id).classList.add('active');
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('tabBtn-'+id).classList.add('active');
+  if(id==='workout') renderWorkout();
+  if(id==='home') renderHome();
+  document.getElementById('screen-'+id).scrollTop=0;
+}
+
+// ═══════════════════════════════════
+// RENDER ALL
+// ═══════════════════════════════════
+function renderAll(){
+  document.getElementById('langBtn').textContent = t('langBtn');
+  document.getElementById('activeLabel').textContent = t('active');
+  // tab labels
+  t('tabs').forEach((lbl,i)=>{ document.getElementById('tabLbl'+i).textContent=lbl; });
+  renderHome();
+  renderWorkout();
+  renderDiet();
+  renderTimerLabels();
+}
+
+// ═══════════════════════════════════
+// HOME
+// ═══════════════════════════════════
+function renderHome(){
+  const L = LANG[lang];
+  document.getElementById('heroName').textContent = L.name;
+  document.getElementById('heroGym').textContent = L.gym;
+  document.getElementById('todayDate').textContent = new Date().toLocaleDateString(lang==='ar'?'ar-EG':'en-GB',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
+  document.getElementById('progressTitle').textContent = L.progressTitle;
+  document.getElementById('targetLbl').textContent = L.targetLbl;
+  document.getElementById('nowLbl').textContent = L.nowLbl;
+  document.getElementById('loseLbl').textContent = L.loseLbl;
+  document.getElementById('inbodyLbl').textContent = L.inbodyLbl;
+  document.getElementById('todayLbl').textContent = L.todayLbl.toUpperCase();
+  document.getElementById('weekLbl').textContent = L.weekLbl.toUpperCase();
+  document.getElementById('statsLbl').textContent = L.statsLbl.toUpperCase();
+  document.getElementById('coachTipLbl').textContent = L.coachTip;
+  document.getElementById('coachMsg').textContent = L.coachMsg;
+  const todayIdx = new Date().getDay();
+  const plan = week()[todayIdx];
+  // today card
+  const tc = document.getElementById('todayCard');
+  tc.style.background = `linear-gradient(135deg,${plan.color}22,${plan.color}08)`;
+  tc.style.border = `1px solid ${plan.color}44`;
+  let exRows = plan.ex.slice(0,3).map(e=>`<div style="font-size:12px;color:#94a3b8;margin-bottom:3px;display:flex;gap:6px"><span>${e.icon}</span><span>${e.name}</span>${e.sets?`<span style="color:${plan.color}">— ${e.sets}×${e.reps}</span>`:e.duration?`<span style="color:${plan.color}">— ${e.duration}</span>`:''}</div>`).join('');
+  tc.innerHTML=`<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px"><div><div style="font-size:11px;color:${plan.color};font-weight:700;letter-spacing:1px">${L.weekLabels[todayIdx]}</div><div style="font-size:17px;font-weight:800;color:#fff;margin-top:2px">${plan.icon} ${L.weekDaysFull[todayIdx]}</div></div><div style="background:${plan.color}22;border-radius:10px;padding:8px 12px;text-align:center"><div style="font-size:17px;font-weight:800;color:${plan.color}">${plan.kcal}</div><div style="font-size:9px;color:#64748b">kcal</div></div></div>${exRows}`;
+  // week strip
+  const ws = document.getElementById('weekStrip');
+  ws.innerHTML = week().map((d,i)=>`<div onclick="goTab('workout',${i})" style="flex:1;background:${i===todayIdx?d.color:'#1e293b'};border-radius:10px;padding:8px 4px;text-align:center;cursor:pointer;border:1px solid ${i===todayIdx?d.color:'#334155'}"><div style="font-size:14px">${d.icon}</div><div style="font-size:9px;color:${i===todayIdx?'#fff':'#475569'};font-weight:${i===todayIdx?700:400};margin-top:2px">${L.weekDays[i]}</div></div>`).join('');
+  // stats
+  const sg = document.getElementById('statsGrid');
+  sg.innerHTML = L.statsData.map(s=>`<div style="background:#1e293b;border-radius:10px;padding:10px;border-top:2px solid ${s.color}"><div style="font-size:9px;color:#64748b;margin-bottom:4px">${s.label}</div><div style="font-size:13px;font-weight:800;color:${s.color}">${s.value}<span style="font-size:9px;color:#64748b"> ${s.unit}</span></div></div>`).join('');
+}
+
+// ═══════════════════════════════════
+// WORKOUT
+// ═══════════════════════════════════
+function renderWorkout(){
+  const L = LANG[lang];
+  document.getElementById('workoutTitle').textContent = L.workoutTitle;
+  document.getElementById('workoutSub').textContent = L.workoutSub;
+  document.getElementById('sessionTimerLbl').textContent = L.sessionTimerLbl;
+  document.getElementById('cooldownLbl').textContent = L.cooldownLbl;
+  document.getElementById('safetyLbl').textContent = L.safetyLbl;
+  document.getElementById('safetyMsg').textContent = L.safetyMsg;
+  const plan = week()[currentWorkoutDay];
+  // day strip
+  document.getElementById('dayStrip').innerHTML = week().map((d,i)=>`<button class="day-btn" onclick="selectDay(${i})" style="background:${i===currentWorkoutDay?d.color:'#1e293b'};color:${i===currentWorkoutDay?'#fff':'#475569'};border:none;box-shadow:${i===currentWorkoutDay?`0 4px 12px ${d.color}44`:'none'}"><span style="font-size:17px">${d.icon}</span><span style="font-size:10px;font-weight:700">${L.weekDays[i]}</span><span style="font-size:8px;opacity:0.7">${L.weekLabels[i]}</span></button>`).join('');
+  // header
+  document.getElementById('wDayFull').textContent = plan.icon+' '+L.weekDaysFull[currentWorkoutDay];
+  document.getElementById('wDayLabel').textContent = L.weekLabels[currentWorkoutDay];
+  document.getElementById('wDayLabel').style.color = plan.color;
+  const kb = document.getElementById('wKcalBadge');
+  kb.textContent = plan.kcal+' kcal'; kb.style.background='#f59e0b22'; kb.style.color='#f59e0b'; kb.style.border='1px solid #f59e0b44';
+  // progress
+  const total=plan.ex.length, done=plan.ex.filter((_,i)=>doneMap[`${currentWorkoutDay}-${i}`]).length;
+  const pct=total?done/total:0;
+  document.getElementById('wRing').style.strokeDashoffset = 113.1*(1-pct);
+  document.getElementById('wRing').style.stroke = plan.color;
+  document.getElementById('wRingPct').textContent = Math.round(pct*100)+'%';
+  document.getElementById('wRingPct').style.color = plan.color;
+  document.getElementById('wDoneCount').textContent = done+'/'+total;
+  document.getElementById('wWarmup').textContent = plan.warmup?(L.warmupLbl+': '+plan.warmup):'';
+  // note
+  const noteBox=document.getElementById('wNote');
+  if(plan.note){noteBox.style.display='block';noteBox.style.background=plan.color+'11';noteBox.style.border=`1px solid ${plan.color}33`;document.getElementById('wNoteText').textContent=plan.note;document.getElementById('wNoteText').style.color=plan.color;}
+  else noteBox.style.display='none';
+  // cooldown
+  const cd=document.getElementById('wCooldown');
+  if(plan.cooldown){cd.style.display='block';document.getElementById('cooldownText').textContent=plan.cooldown;}
+  else cd.style.display='none';
+  // stopwatch buttons
+  const sb=document.getElementById('swBtn');
+  sb.textContent=swOn?L.pauseBtn:L.startBtn;
+  sb.style.background=swOn?'#ef4444':'#22c55e';
+  // exercises
+  const el=document.getElementById('exList');
+  el.innerHTML=plan.ex.map((ex,i)=>{
+    const key=`${currentWorkoutDay}-${i}`;
+    const isDone=!!doneMap[key];
+    const isExp=expandedEx===i;
+    const lvlColor=ex.level===L.advanced||ex.level==='Advanced'?'#ef4444':ex.level===L.intermediate||ex.level==='Intermediate'?'#f59e0b':'#22c55e';
+    const setsBadge=ex.sets?`<span class="badge" style="background:${plan.color}22;color:${plan.color};border:1px solid ${plan.color}44">${ex.sets} ${L.setsLbl} × ${ex.reps}</span>`:'';
+    const durBadge=ex.duration?`<span class="badge" style="background:#3b82f622;color:#93c5fd;border:1px solid #3b82f644">${ex.duration}</span>`:'';
+    const restBadge=ex.rest?`<span class="badge" style="background:#6b728022;color:#94a3b8;border:1px solid #6b728044">${L.restLbl} ${ex.rest}s</span>`:'';
+    const lvlBadge=`<span class="badge" style="background:${lvlColor}22;color:${lvlColor};border:1px solid ${lvlColor}44">${ex.level}</span>`;
+    let proto='';
+    if(ex.protocol&&isExp){
+      proto=`<div style="margin-top:8px"><div style="font-size:11px;color:#64748b;margin-bottom:6px;font-weight:700">${L.protocolLbl}</div>`+
+      ex.protocol.map(p=>`<div style="display:flex;align-items:center;gap:8px;margin-bottom:4px"><div style="width:56px;font-size:10px;color:#94a3b8">${p.ph}</div><div class="protocol-bar"><div style="width:${p.int}%;background:${p.int>80?'#ef4444':p.int>50?'#f59e0b':'#22c55e'};height:100%"></div></div><div style="width:42px;font-size:9px;color:#64748b">${p.t}</div><div style="width:46px;font-size:9px;color:#93c5fd">${p.sp}</div></div>`).join('')+'</div>';
+    }
+    const detail=isExp?`<div class="ex-detail open"><div style="font-size:12px;color:#94a3b8;margin-top:10px;margin-bottom:8px"><strong style="color:#64748b">${L.muscleLbl}: </strong>${ex.muscle}</div><div style="background:#0f172a;border-radius:8px;padding:10px 12px"><div style="font-size:11px;color:#f59e0b;margin-bottom:4px;font-weight:700">${L.coachNote}</div><div style="font-size:13px;color:#cbd5e1;line-height:1.6">${ex.tip}</div></div>${proto}</div>`:'<div class="ex-detail"></div>';
+    return`<div class="ex-row${isDone?' done':''}" style="border:1px solid ${isDone?'#22c55e':'#334155'}">
+      <div class="ex-header" onclick="toggleEx(${i})">
+        <span style="font-size:22px;flex-shrink:0">${ex.icon}</span>
+        <div style="flex:1;min-width:0">
+          <div style="font-size:14px;font-weight:700;color:${isDone?'#86efac':'#fff'};margin-bottom:4px">${ex.name}</div>
+          <div style="display:flex;gap:5px;flex-wrap:wrap">${setsBadge}${durBadge}${restBadge}${lvlBadge}</div>
+        </div>
+        <div style="display:flex;gap:8px;align-items:center;flex-shrink:0">
+          <span style="color:#475569;font-size:11px">${isExp?'▲':'▼'}</span>
+          <div class="check-circle${isDone?' checked':''}" onclick="event.stopPropagation();toggleDone(${i})">${isDone?'✓':''}</div>
+        </div>
+      </div>
+      ${detail}
+    </div>`;
+  }).join('');
+}
+
+function selectDay(i){
+  currentWorkoutDay=i; expandedEx=null;
+  renderWorkout();
+  document.getElementById('screen-workout').scrollTop=0;
+}
+
+function toggleEx(i){
+  expandedEx = expandedEx===i?null:i;
+  renderWorkout();
+}
+
+function toggleDone(i){
+  const key=`${currentWorkoutDay}-${i}`;
+  doneMap[key]=!doneMap[key];
+  renderWorkout();
+}
+
+// ═══════════════════════════════════
+// DIET
+// ═══════════════════════════════════
+function renderDiet(){
+  const L=LANG[lang]; const ms=meals();
+  document.getElementById('dietTitle').textContent=L.dietTitle;
+  document.getElementById('dietSub').textContent=L.dietSub;
+  document.getElementById('dailyKcalLbl').textContent=L.dailyKcalLbl;
+  document.getElementById('kcalTargetLbl').textContent=L.kcalTargetLbl;
+  document.getElementById('restaurantTitle').textContent=L.restaurantTitle;
+  document.getElementById('restaurantMsg').textContent=L.restaurantMsg;
+  document.getElementById('rulesTitle').textContent=L.rulesTitle;
+  // kcal bars
+  const total=ms.reduce((a,m)=>a+m.kcal,0);
+  document.getElementById('kcalBars').innerHTML=ms.map((m,i)=>`<div style="display:flex;align-items:center;gap:8px;margin-bottom:5px"><div style="font-size:12px">${m.icon}</div><div style="width:50px;font-size:10px;color:#64748b">${L.mealLabels[i]}</div><div class="progress-bar-bg" style="flex:1"><div class="progress-bar-fill" style="width:${(m.kcal/total)*100}%;background:${m.color}"></div></div><div style="width:32px;font-size:10px;color:${m.color};font-weight:700;text-align:right">${m.kcal}</div></div>`).join('');
+  // meal tabs
+  document.getElementById('mealTabs').innerHTML=ms.map((m,i)=>`<button class="meal-tab" onclick="setMeal('${m.id}')" style="border:1px solid ${activeMeal===m.id?m.color:'#334155'};background:${activeMeal===m.id?m.color+'22':'#1e293b'};color:${activeMeal===m.id?m.color:'#64748b'};font-weight:${activeMeal===m.id?700:400}"><span style="font-size:16px">${m.icon}</span><span>${L.mealLabels[i]}</span><span style="font-size:9px;color:${activeMeal===m.id?m.color:'#475569'}">${m.kcal}</span></button>`).join('');
+  // meal card
+  const meal=ms.find(m=>m.id===activeMeal);
+  const mIdx=ms.findIndex(m=>m.id===activeMeal);
+  const opt=meal.options[Math.min(mealOptIdx,meal.options.length-1)];
+  const optBtns=meal.options.length>1?`<div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px">`+meal.options.map((o,i)=>`<button onclick="setOpt(${i})" style="padding:4px 10px;border-radius:6px;border:1px solid ${mealOptIdx===i?meal.color:'#334155'};background:${mealOptIdx===i?meal.color+'22':'transparent'};color:${mealOptIdx===i?meal.color:'#475569'};font-size:11px;font-weight:${mealOptIdx===i?700:400}">${o.lbl}</button>`).join('')+'</div>':'';
+  document.getElementById('mealCard').innerHTML=`
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+      <div><div style="font-size:17px;font-weight:700;color:#fff">${meal.icon} ${L.mealLabels[mIdx]}</div><div style="font-size:11px;color:#64748b">⏰ ${L.mealTimes[mIdx]}</div></div>
+      <span class="badge" style="background:${meal.color}22;color:${meal.color};border:1px solid ${meal.color}44">${meal.kcal} kcal</span>
+    </div>
+    ${optBtns}
+    ${opt.items.map(item=>`<div style="display:flex;gap:10px;background:#0f172a;border-radius:8px;padding:9px 12px;margin-bottom:6px"><div style="width:5px;height:5px;border-radius:50%;background:${meal.color};margin-top:7px;flex-shrink:0"></div><div style="font-size:13px;color:#cbd5e1">${item}</div></div>`).join('')}
+  `;
+  document.getElementById('mealCard').style.border=`1px solid ${meal.color}33`;
+  // rules
+  document.getElementById('rulesList').innerHTML=L.rules.map(r=>`<div style="display:flex;gap:10px;margin-bottom:10px;align-items:flex-start"><span style="font-size:16px;flex-shrink:0">${r.icon}</span><span style="font-size:13px;color:#cbd5e1;line-height:1.6">${r.text}</span></div>`).join('');
+}
+
+function setMeal(id){activeMeal=id;mealOptIdx=0;renderDiet();}
+function setOpt(i){mealOptIdx=i;renderDiet();}
+
+// ═══════════════════════════════════
+// TIMER
+// ═══════════════════════════════════
+function renderTimerLabels(){
+  const L=LANG[lang];
+  document.getElementById('timerTitle').textContent=L.timerTitle;
+  document.getElementById('timerSub').textContent=L.timerSub;
+  document.getElementById('swTabLbl').textContent=L.swTab;
+  document.getElementById('restTabLbl').textContent=L.restTab;
+  document.getElementById('swimTabLbl').textContent=L.swimTab;
+  document.getElementById('totalSessionLbl').textContent=L.totalSessionLbl;
+  document.getElementById('restBetweenLbl').textContent=L.restBetweenLbl;
+  document.getElementById('lapTimerLbl').textContent=L.lapTimerLbl;
+  document.getElementById('lapLengthLbl').textContent=L.lapLengthLbl;
+  document.getElementById('restGuideLbl').textContent=L.restGuideLbl;
+  document.getElementById('targetTimesLbl').textContent=L.targetTimesLbl;
+  document.getElementById('targetTimesMsg').innerHTML=L.targetTimesMsg;
+  document.getElementById('secsLbl').textContent=L.secsLbl;
+  document.getElementById('lapSecsLbl').textContent=L.secsLbl;
+  updateSwBtn(); updateRestBtn(); updateLapBtn();
+}
+
+function setTimerTab(id){
+  timerTab=id;
+  ['sw','rest','swim'].forEach(t=>{
+    document.getElementById('tpanel-'+t).style.display=t===id?'block':'none';
+    const btn=document.getElementById('ttab-'+t);
+    btn.style.background=t===id?'#1e40af':'#1e293b';
+    btn.style.color=t===id?'#93c5fd':'#64748b';
+    btn.style.fontWeight=t===id?700:400;
+  });
+}
+
+// Stopwatch
+function swFmt(s){return String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0');}
+function swToggle(){
+  if(swOn){clearInterval(swInterval);swOn=false;}
+  else{swInterval=setInterval(()=>{swSecs++;document.getElementById('swDisplay').textContent=swFmt(swSecs);document.getElementById('swBigDisplay').textContent=swFmt(swSecs);},1000);swOn=true;}
+  updateSwBtn();
+}
+function swReset(){clearInterval(swInterval);swOn=false;swSecs=0;document.getElementById('swDisplay').textContent='00:00';document.getElementById('swBigDisplay').textContent='00:00';updateSwBtn();}
+function updateSwBtn(){
+  const L=LANG[lang];
+  [document.getElementById('swBtn'),document.getElementById('swBigBtn')].forEach(b=>{
+    if(!b)return;
+    b.textContent=swOn?L.pauseBtn:L.startBtn;
+    b.style.background=swOn?'#ef4444':'#22c55e';
+    b.style.boxShadow=swOn?'0 4px 20px #ef444466':'0 4px 20px #22c55e66';
+  });
+}
+
+// Rest countdown
+function setRest(s){
+  restSec=s; restRemain=s; restDone=false;
+  clearInterval(restInterval); restOn=false;
+  document.getElementById('restDisplay').textContent=s;
+  document.getElementById('restDisplay').style.color='#93c5fd';
+  document.getElementById('restRing').style.strokeDashoffset='0';
+  document.getElementById('restRing').style.stroke='#3b82f6';
+  document.querySelectorAll('.rest-preset').forEach(b=>{
+    const active=parseInt(b.dataset.s)===s;
+    b.style.border=active?'1px solid #3b82f6':'1px solid #334155';
+    b.style.background=active?'#3b82f622':'transparent';
+    b.style.color=active?'#93c5fd':'#64748b';
+    b.style.fontWeight=active?700:400;
+  });
+  updateRestBtn();
+}
+function restToggle(){
+  if(restDone){restReset();return;}
+  if(restOn){clearInterval(restInterval);restOn=false;}
+  else{
+    restInterval=setInterval(()=>{
+      restRemain--;
+      const pct=restRemain/restSec;
+      document.getElementById('restDisplay').textContent=restRemain;
+      document.getElementById('restRing').style.strokeDashoffset=345.4*(1-pct);
+      if(restRemain<=0){
+        clearInterval(restInterval);restOn=false;restDone=true;
+        document.getElementById('restDisplay').textContent=LANG[lang].restDone;
+        document.getElementById('restDisplay').style.color='#22c55e';
+        document.getElementById('restRing').style.stroke='#22c55e';
+        updateRestBtn();
+      }
+    },1000);
+    restOn=true;
+  }
+  updateRestBtn();
+}
+function restReset(){clearInterval(restInterval);restOn=false;restDone=false;restRemain=restSec;document.getElementById('restDisplay').textContent=restSec;document.getElementById('restDisplay').style.color='#93c5fd';document.getElementById('restRing').style.strokeDashoffset='0';document.getElementById('restRing').style.stroke='#3b82f6';updateRestBtn();}
+function updateRestBtn(){
+  const L=LANG[lang]; const b=document.getElementById('restBtn');
+  b.textContent=restOn?L.pauseBtn:restDone?L.againBtn:L.startRest;
+  b.style.background=restOn?'#ef4444':'#3b82f6';
+}
+
+// Lap countdown
+function setLap(s,lbl){
+  lapSec=s; lapRemain=s; lapDone=false;
+  clearInterval(lapInterval); lapOn=false;
+  document.getElementById('lapDisplay').textContent=s;
+  document.getElementById('lapDisplay').style.color='#67e8f9';
+  document.getElementById('lapSecsLbl').textContent=LANG[lang].secsLbl;
+  document.getElementById('lapRing').style.strokeDashoffset='0';
+  document.getElementById('lapRing').style.stroke='#06b6d4';
+  document.querySelectorAll('.lap-preset').forEach(b=>{
+    const active=parseInt(b.dataset.s)===s;
+    b.style.border=active?'1px solid #06b6d4':'1px solid #334155';
+    b.style.background=active?'#06b6d422':'transparent';
+    b.style.color=active?'#67e8f9':'#64748b';
+    b.style.fontWeight=active?700:400;
+  });
+  updateLapBtn();
+}
+function lapToggle(){
+  if(lapDone){lapReset();return;}
+  if(lapOn){clearInterval(lapInterval);lapOn=false;}
+  else{
+    lapInterval=setInterval(()=>{
+      lapRemain--;
+      const pct=lapRemain/lapSec;
+      document.getElementById('lapDisplay').textContent=lapRemain;
+      document.getElementById('lapRing').style.strokeDashoffset=345.4*(1-pct);
+      if(lapRemain<=0){
+        clearInterval(lapInterval);lapOn=false;lapDone=true;
+        document.getElementById('lapDisplay').textContent=LANG[lang].lapDone;
+        document.getElementById('lapDisplay').style.color='#22c55e';
+        document.getElementById('lapRing').style.stroke='#22c55e';
+        document.getElementById('lapSecsLbl').textContent='';
+        updateLapBtn();
+      }
+    },1000);
+    lapOn=true;
+  }
+  updateLapBtn();
+}
+function lapReset(){clearInterval(lapInterval);lapOn=false;lapDone=false;lapRemain=lapSec;document.getElementById('lapDisplay').textContent=lapSec;document.getElementById('lapDisplay').style.color='#67e8f9';document.getElementById('lapSecsLbl').textContent=LANG[lang].secsLbl;document.getElementById('lapRing').style.strokeDashoffset='0';document.getElementById('lapRing').style.stroke='#06b6d4';updateLapBtn();}
+function updateLapBtn(){
+  const L=LANG[lang]; const b=document.getElementById('lapBtn');
+  b.textContent=lapOn?L.pauseBtn:lapDone?L.newLapBtn:L.startLap;
+  b.style.background=lapOn?'#ef4444':'#06b6d4';
+}
+
+// ═══════════════════════════════════
+// INIT
+// ═══════════════════════════════════
+renderAll();
+setTimerTab('sw');
+</script>
+<script>
+window.addEventListener("load",function(){
+  if("serviceWorker" in navigator){
+    var c=["fitpro-v1"];
+    var swSrc="self.addEventListener('install',function(e){e.waitUntil(caches.open('fitpro-v1').then(function(cache){return cache.add(location.href);}));});self.addEventListener('fetch',function(e){e.respondWith(caches.match(e.request).then(function(r){return r||fetch(e.request);}));});";
+    var blob=new Blob([swSrc],{type:"text/javascript"});
+    var url=URL.createObjectURL(blob);
+    navigator.serviceWorker.register(url).catch(function(){});
+  }
+});
+</script>
+</body>
+</html>
